@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+if ((window.location.hash || '').includes('figmacapture=')) {
+  document.documentElement.classList.add('is-figma-capture');
+}
+</script>
+<script src="./support.js"></script>
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ImmersivePlay™ — ADT Interactive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Be+Vietnam+Pro:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ease-zeit:cubic-bezier(.16,1,.3,1);--ease-soft:cubic-bezier(.22,1,.36,1)}
+html{scroll-behavior:auto;scroll-padding-top:90px}
+html.is-native-scroll{scroll-behavior:smooth}
+body{margin:0;background:#070707;color:#F5F5F2;font-family:'Be Vietnam Pro',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;overscroll-behavior-y:none}
+a{color:#F5F5F2;text-decoration:none}
+a:hover{color:#F7D77C}
+::selection{background:#F5B800;color:#070707}
+input,textarea{font-family:'IBM Plex Mono',monospace}
+input::placeholder,textarea::placeholder{color:#55554f}
+@keyframes fadeUp{0%{opacity:0;transform:translate3d(0,56px,0) scale(.985);filter:blur(10px)}65%{opacity:1;filter:blur(0)}100%{opacity:1;transform:translate3d(0,0,0) scale(1);filter:blur(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes lineGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes maskReveal{0%{clip-path:inset(0 100% 0 0);transform:translate3d(18px,0,0) scale(1.025);filter:blur(8px)}100%{clip-path:inset(0 0 0 0);transform:translate3d(0,0,0) scale(1);filter:blur(0)}}
+@keyframes maskUp{0%{clip-path:inset(100% 0 0 0);transform:translate3d(0,54px,0);filter:blur(8px)}100%{clip-path:inset(0 0 0 0);transform:translate3d(0,0,0);filter:blur(0)}}
+@keyframes parallaxY{from{transform:translate3d(0,7%,0) scale(1.13) rotate(.001deg)}to{transform:translate3d(0,-7%,0) scale(1.13) rotate(.001deg)}}
+@keyframes headerGlass{from{background:rgba(7,7,7,0);border-bottom:1px solid rgba(255,255,255,0);backdrop-filter:blur(0px)}to{background:rgba(9,9,9,.78);border-bottom:1px solid rgba(255,255,255,.08);backdrop-filter:blur(20px)}}
+@keyframes growX{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes signalMove{from{left:0%}to{left:100%}}
+@keyframes stageOn{0%{opacity:.28;color:#9C9C96}18%{opacity:1;color:#F5F5F2}82%{opacity:1;color:#F5F5F2}100%{opacity:.45;color:#9C9C96}}
+@keyframes stageDotOn{0%{background:#3a3a36;box-shadow:none;transform:scale(1)}18%{background:#F7D77C;box-shadow:0 0 18px rgba(245,184,0,.55);transform:scale(1.5)}82%{background:#F7D77C;box-shadow:0 0 18px rgba(245,184,0,.55);transform:scale(1.5)}100%{background:#6b5d2e;box-shadow:none;transform:scale(1)}}
+@keyframes stageVis{0%{opacity:0;transform:translateY(26px)}22%{opacity:1;transform:none}78%{opacity:1;transform:none}100%{opacity:0;transform:translateY(-18px)}}
+@keyframes stageVisLast{0%{opacity:0;transform:translateY(26px)}30%{opacity:1;transform:none}100%{opacity:1;transform:none}}
+@keyframes journeyImage{0%{opacity:0;transform:translate3d(0,5%,0) scale(1.12);filter:brightness(.62) saturate(.95)}18%{opacity:1;filter:brightness(.8) saturate(1.08)}78%{opacity:1;filter:brightness(.8) saturate(1.08)}100%{opacity:0;transform:translate3d(0,-5%,0) scale(1.08);filter:brightness(.62) saturate(.95)}}
+@keyframes journeyImageLast{0%{opacity:0;transform:translate3d(0,5%,0) scale(1.12);filter:brightness(.62) saturate(.95)}26%{opacity:1;filter:brightness(.8) saturate(1.08)}100%{opacity:1;transform:translate3d(0,-3%,0) scale(1.08);filter:brightness(.8) saturate(1.08)}}
+@keyframes pulseDot{0%,100%{opacity:.35;transform:scale(1)}50%{opacity:1;transform:scale(1.6)}}
+@keyframes ringPulse{0%{transform:scale(.6);opacity:.8}100%{transform:scale(2.4);opacity:0}}
+@keyframes marqueeX{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes heroZoom{from{transform:scale(1.14)}to{transform:scale(1)}}
+@keyframes slowPan{from{background-position:0 0}to{background-position:80px 80px}}
+#hero [data-hero-word]{display:block;width:max-content;max-width:100%;transition:color .55s cubic-bezier(.16,1,.3,1),-webkit-text-stroke-color .55s cubic-bezier(.16,1,.3,1),-webkit-text-stroke-width .55s cubic-bezier(.16,1,.3,1),text-shadow .55s cubic-bezier(.16,1,.3,1),filter .55s cubic-bezier(.16,1,.3,1);will-change:color,-webkit-text-stroke-color,text-shadow,filter}
+#hero [data-hero-word="immersive"]{color:#F5F5F2;-webkit-text-stroke:0 transparent}
+#hero [data-hero-word="immersive"]:hover,#hero [data-hero-word="immersive"].is-hero-hover{color:transparent;-webkit-text-stroke:2px #F5B800;text-shadow:0 0 36px rgba(245,184,0,.28);filter:brightness(1.08)}
+#hero [data-hero-word="interactive"]{color:transparent;-webkit-text-stroke:2px #F5B800}
+#hero [data-hero-word="interactive"]:hover,#hero [data-hero-word="interactive"].is-hero-hover{color:#F5B800!important;-webkit-text-stroke-color:#F5B800;text-shadow:0 0 44px rgba(245,184,0,.36);filter:brightness(1.08)}
+#projects [data-project-row]{--row-delay:0ms;opacity:.16;transform:translate3d(0,74px,0) scale(.985);filter:blur(12px);transition:opacity 1s var(--ease-zeit),transform 1.25s var(--ease-zeit),filter 1.25s var(--ease-zeit);transition-delay:var(--row-delay);will-change:opacity,transform,filter}
+#projects [data-project-row].is-inview{opacity:1;transform:translate3d(0,0,0) scale(1);filter:blur(0)}
+#projects [data-project-row]>span{opacity:0;transform:translate3d(-22px,0,0);transition:opacity .9s var(--ease-zeit),transform 1s var(--ease-zeit);transition-delay:calc(var(--row-delay) + 80ms);will-change:opacity,transform}
+#projects [data-project-row]>div:nth-child(2){opacity:0;transform:translate3d(0,34px,0);transition:opacity 1s var(--ease-zeit),transform 1.08s var(--ease-zeit);transition-delay:calc(var(--row-delay) + 160ms);will-change:opacity,transform}
+#projects [data-project-row].is-inview>span,#projects [data-project-row].is-inview>div:nth-child(2){opacity:1;transform:translate3d(0,0,0)}
+#projects [data-project-row] [data-project-media]{opacity:.35;clip-path:inset(0 0 0 100%);transform:translate3d(46px,0,0) scale(.975);filter:brightness(.7) saturate(.85);transition:opacity 1.05s var(--ease-zeit),clip-path 1.25s var(--ease-zeit),transform 1.25s var(--ease-zeit),filter 1.25s var(--ease-zeit);transition-delay:calc(var(--row-delay) + 260ms);will-change:opacity,clip-path,transform,filter}
+#projects [data-project-row].is-inview [data-project-media]{opacity:1;clip-path:inset(0 0 0 0);transform:translate3d(0,0,0) scale(1);filter:brightness(1) saturate(1)}
+#projects [data-project-media]::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(245,184,0,.85),rgba(247,215,124,.24),rgba(7,7,7,0));transform:translate3d(-115%,0,0);transition:transform 1.25s var(--ease-zeit);transition-delay:calc(var(--row-delay) + 280ms);pointer-events:none;mix-blend-mode:screen;z-index:2}
+#projects [data-project-row].is-inview [data-project-media]::after{transform:translate3d(115%,0,0)}
+#projects [data-project-media-inner]{animation:none!important;transform:translate3d(0,var(--project-parallax,0px),0) scale(1.08) rotate(.001deg);will-change:transform}
+#projects [data-project-divider]{transform:scaleX(.08);transform-origin:left;opacity:.18;transition:opacity .85s var(--ease-zeit),transform 1.15s var(--ease-zeit);will-change:opacity,transform}
+#projects [data-project-divider].is-inview{opacity:1;transform:scaleX(1)}
+html.is-figma-capture body{overscroll-behavior-y:auto}
+html.is-figma-capture [style*="animation-timeline:view"]{animation:none!important;opacity:1!important;transform:none!important;filter:none!important;clip-path:inset(0 0 0 0)!important}
+html.is-figma-capture [style*="animation-timeline: view"]{animation:none!important;opacity:1!important;transform:none!important;filter:none!important;clip-path:inset(0 0 0 0)!important}
+html.is-figma-capture #journey{height:auto!important;view-timeline-name:none!important}
+html.is-figma-capture #journey>div{position:relative!important;top:auto!important;height:auto!important;min-height:100vh!important}
+html.is-figma-capture #journey [style*="animation-timeline:--journey"]{animation:none!important}
+html.is-figma-capture #journey [style*="animation-timeline: --journey"]{animation:none!important}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
+</style>
+</helmet>
+
+<div style="position:relative;background:#070707;cursor:none">
+<div data-dc-ref="cursor" style="position:fixed;left:0;top:0;width:14px;height:14px;border:1px solid #F5B800;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-100px,-100px);transition:width .2s,height .2s;mix-blend-mode:screen"></div>
+
+<!-- 0 — HEADER -->
+<header data-screen-label="Header" style="position:fixed;top:0;left:0;right:0;z-index:900;animation:headerGlass 1s linear both;animation-timeline:scroll();animation-range:0px 180px">
+  <div style="max-width:1680px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;gap:32px">
+    <a href="#hero" style="display:flex;align-items:center;gap:12px">
+      <span style="width:34px;height:34px;background:linear-gradient(135deg,#F5B800,#F7D77C);display:grid;place-items:center;font-family:'Space Grotesk',sans-serif;font-weight:700;color:#070707;font-size:15px">A</span>
+      <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;letter-spacing:.14em">ADT&nbsp;INTERACTIVE</span>
+    </a>
+    <nav style="display:flex;align-items:center;gap:32px;flex-wrap:wrap;justify-content:flex-end">
+      <a href="#hero" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;color:#F5F5F2;padding:6px 0;border-bottom:1px solid transparent;transition:all .3s" style-hover="color:#F7D77C;border-bottom:1px solid #F5B800">Home</a>
+      <a href="#usp" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;color:#9C9C96;padding:6px 0;border-bottom:1px solid transparent;transition:all .3s" style-hover="color:#F7D77C;border-bottom:1px solid #F5B800">Strategic Partners</a>
+      <a href="#journey" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;color:#9C9C96;padding:6px 0;border-bottom:1px solid transparent;transition:all .3s" style-hover="color:#F7D77C;border-bottom:1px solid #F5B800">Product Ecosystem</a>
+      <a href="#news" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;color:#9C9C96;padding:6px 0;border-bottom:1px solid transparent;transition:all .3s" style-hover="color:#F7D77C;border-bottom:1px solid #F5B800">Project &amp; News</a>
+      <a href="#projects" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;color:#9C9C96;padding:6px 0;border-bottom:1px solid transparent;transition:all .3s" style-hover="color:#F7D77C;border-bottom:1px solid #F5B800">Sản phẩm</a>
+      <a href="#hero" style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9C9C96;border:1px solid rgba(255,255,255,0.12);padding:5px 10px;transition:all .3s" style-hover="color:#F7D77C;border:1px solid #F5B800">VI</a>
+      <a href="#contact" data-magnetic="1" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;color:#070707;background:linear-gradient(120deg,#F5B800,#F7D77C);padding:10px 20px;font-weight:500;transition:box-shadow .3s;display:inline-block" style-hover="box-shadow:0 0 28px rgba(245,184,0,.35)">Liên hệ</a>
+    </nav>
+  </div>
+</header>
+
+<!-- 1 — HERO / OVERVIEW -->
+<section id="hero" data-screen-label="1 — Overview" data-dc-ref="heroFrame" style="position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden">
+  <div style="position:absolute;inset:0;animation:heroZoom 2.4s cubic-bezier(.22,1,.36,1) both">
+    <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="hero-visual" shape="rect" src="assets/pvn-zone.jpg" placeholder="Drop ImmersivePlay™ hero image / video" hint-size="100%,100%" style="position:absolute;inset:0"></x-import>
+  </div>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,7,7,.55) 0%,rgba(7,7,7,.15) 40%,rgba(7,7,7,.88) 88%,#070707 100%);pointer-events:none"></div>
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:110px 110px;pointer-events:none;mix-blend-mode:overlay"></div>
+  <canvas data-dc-ref="heroCanvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:3"></canvas>
+  <div style="position:relative;z-index:4;padding:150px 48px 0;max-width:1680px;margin:0 auto;width:100%">
+    <div style="display:flex;align-items:center;gap:16px;animation:fadeUp 1s cubic-bezier(.22,1,.36,1) both;animation-delay:.15s">
+      <span style="width:8px;height:8px;background:#F5B800;border-radius:50%;animation:pulseDot 2.6s ease-in-out infinite"></span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.34em;color:#F7D77C">IMMERSIVEPLAY™ / INTERACTIVE IMMERSION TECHNOLOGY</span>
+    </div>
+    <h1 style="font-family:'Space Grotesk',sans-serif;font-weight:700;margin:30px 0 0;line-height:.92;letter-spacing:-.03em;color:#F5F5F2;text-transform:uppercase">
+      <span data-hero-word="immersive" style="display:block;font-size:clamp(56px,9.5vw,168px);animation:maskUp 1s cubic-bezier(.22,1,.36,1) both;animation-delay:.25s">Immersive</span>
+      <span data-hero-word="interactive" style="display:block;font-size:clamp(56px,9.5vw,168px);color:transparent;-webkit-text-stroke:2px #F5B800;animation:maskUp 1s cubic-bezier(.22,1,.36,1) both;animation-delay:.4s">Interactive</span>
+      <span style="display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 36px;animation:maskUp 1s cubic-bezier(.22,1,.36,1) both;animation-delay:.55s"><span style="font-size:clamp(40px,5.5vw,96px)">software for</span><span style="font-size:clamp(40px,5.5vw,96px);color:transparent;background:linear-gradient(110deg,#F5B800 20%,#F7D77C 60%,#F5B800);background-clip:text;-webkit-background-clip:text">touch displays</span></span>
+    </h1>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:48px;align-items:end;margin-top:48px;padding-bottom:64px">
+      <p style="font-size:16px;font-weight:300;line-height:1.8;color:#c9c9c3;max-width:560px;margin:0;text-wrap:pretty;animation:fadeUp 1s cubic-bezier(.22,1,.36,1) both;animation-delay:.7s">ImmersivePlay™ is an interactive immersion technology combining control and display screen systems. Users touch to command virtual spaces — explore, complete missions, or follow live information.</p>
+      <div style="display:flex;gap:18px;flex-wrap:wrap;justify-content:flex-end;animation:fadeUp 1s cubic-bezier(.22,1,.36,1) both;animation-delay:.8s">
+        <a href="#contact" data-magnetic="1" style="display:inline-flex;align-items:center;gap:12px;background:linear-gradient(120deg,#F5B800,#F7D77C);color:#070707;font-weight:600;font-size:14px;letter-spacing:.06em;padding:18px 34px;transition:box-shadow .35s" style-hover="box-shadow:0 0 44px rgba(245,184,0,.45)">Start a project with ADT<span style="font-family:'IBM Plex Mono',monospace">→</span></a>
+        <a href="#projects" data-magnetic="1" style="display:inline-flex;align-items:center;gap:12px;border:1px solid rgba(255,255,255,0.25);backdrop-filter:blur(8px);background:rgba(7,7,7,.3);color:#F5F5F2;font-weight:500;font-size:14px;letter-spacing:.06em;padding:18px 34px;transition:all .35s" style-hover="border:1px solid #F5B800;color:#F7D77C">[ Real-world applications ]</a>
+      </div>
+    </div>
+  </div>
+  <div style="position:relative;z-index:4;border-top:1px solid rgba(255,255,255,0.12);background:rgba(7,7,7,.5);backdrop-filter:blur(6px);overflow:hidden;padding:14px 0">
+    <div style="display:flex;gap:64px;white-space:nowrap;width:max-content;animation:marqueeX 26s linear infinite;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.3em;color:#9C9C96">
+      <span>TOUCH TO CONTROL</span><span style="color:#F5B800">◆</span><span>EXPLORE VIRTUAL SPACE</span><span style="color:#F5B800">◆</span><span>COMPLETE MISSIONS</span><span style="color:#F5B800">◆</span><span>TRACK LIVE INFORMATION</span><span style="color:#F5B800">◆</span>
+      <span>TOUCH TO CONTROL</span><span style="color:#F5B800">◆</span><span>EXPLORE VIRTUAL SPACE</span><span style="color:#F5B800">◆</span><span>COMPLETE MISSIONS</span><span style="color:#F5B800">◆</span><span>TRACK LIVE INFORMATION</span><span style="color:#F5B800">◆</span>
+    </div>
+  </div>
+</section>
+
+<!-- 2 — USP -->
+<section id="usp" data-screen-label="2 — USP" style="position:relative;padding:150px 48px 130px;background:#0a0a0a;border-top:1px solid rgba(255,255,255,0.06);overflow:hidden">
+  <span style="position:absolute;top:40px;right:-20px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(120px,16vw,280px);line-height:1;color:transparent;-webkit-text-stroke:1px rgba(245,184,0,.14);pointer-events:none;user-select:none">WHY?</span>
+  <div style="max-width:1680px;margin:0 auto;position:relative">
+    <div style="display:flex;align-items:baseline;gap:24px;animation:fadeUp 1.2s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 0% cover 28%">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.3em;color:#F5B800">02 / USP</span>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(44px,5.5vw,96px);letter-spacing:-.02em;margin:0;color:#F5F5F2;text-transform:uppercase">Why ImmersivePlay™?</h2>
+    </div>
+    <div style="height:1px;background:linear-gradient(90deg,#F5B800,rgba(255,255,255,0.08) 40%,rgba(255,255,255,0.08));margin:48px 0 0;transform-origin:left;animation:lineGrow 1s ease both;animation-timeline:view();animation-range:entry 0% cover 32%"></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+      <div style="padding:60px 36px 68px;border-right:1px solid rgba(255,255,255,0.07);transition:background .4s;animation:fadeUp 1.2s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 0% cover 28%" style-hover="background:rgba(245,184,0,0.05)">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.28em;color:#5c5c58">USP/01</span>
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(84px,7.5vw,140px);line-height:1;margin:24px 0 0;color:transparent;background:linear-gradient(160deg,#F7D77C,#F5B800);background-clip:text;-webkit-background-clip:text">×3</div>
+        <p style="font-size:16px;line-height:1.65;color:#F5F5F2;margin:22px 0 0;text-wrap:pretty">higher engagement rate &amp; customer dwell time</p>
+      </div>
+      <div style="padding:60px 36px 68px;border-right:1px solid rgba(255,255,255,0.07);transition:background .4s;animation:fadeUp 1.2s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 6% cover 38%" style-hover="background:rgba(245,184,0,0.05)">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.28em;color:#5c5c58">USP/02</span>
+        <div style="height:clamp(84px,7.5vw,140px);margin:24px 0 0;display:flex;align-items:center"><span style="width:72px;height:72px;border:1px solid #F5B800;border-radius:50%;display:grid;place-items:center;color:#F7D77C;font-family:'IBM Plex Mono',monospace;font-size:22px">◉</span></div>
+        <p style="font-size:16px;line-height:1.65;color:#F5F5F2;margin:22px 0 0;text-wrap:pretty">Deep immersive role-play — visitors actively discover information</p>
+      </div>
+      <div style="padding:60px 36px 68px;border-right:1px solid rgba(255,255,255,0.07);transition:background .4s;animation:fadeUp 1.2s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 12% cover 44%" style-hover="background:rgba(245,184,0,0.05)">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.28em;color:#5c5c58">USP/03</span>
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(84px,7.5vw,140px);line-height:1;margin:24px 0 0;color:transparent;background:linear-gradient(160deg,#F7D77C,#F5B800);background-clip:text;-webkit-background-clip:text">×5</div>
+        <p style="font-size:16px;line-height:1.65;color:#F5F5F2;margin:22px 0 0;text-wrap:pretty">stronger brand recall</p>
+      </div>
+      <div style="padding:60px 36px 68px;transition:background .4s;animation:fadeUp 1.2s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 18% cover 50%" style-hover="background:rgba(245,184,0,0.05)">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.28em;color:#5c5c58">USP/04</span>
+        <div style="height:clamp(84px,7.5vw,140px);margin:24px 0 0;display:flex;align-items:center"><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:52px;color:transparent;-webkit-text-stroke:1.5px #F7D77C;letter-spacing:-.02em">№1</span></div>
+        <p style="font-size:16px;line-height:1.65;color:#F5F5F2;margin:22px 0 0;text-wrap:pretty">Position your brand as the pioneer</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 — END-TO-END JOURNEY -->
+<section id="journey" data-screen-label="3 — End-to-end delivery" style="position:relative;height:340vh;view-timeline:--journey block;background:#070707">
+  <div style="position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;padding:110px 48px 60px;overflow:hidden;background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);background-size:80px 80px">
+    <div style="max-width:1680px;margin:0 auto;width:100%">
+      <div style="display:flex;align-items:baseline;gap:24px;flex-wrap:wrap">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.3em;color:#F5B800">03 / PROCESS</span>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(28px,3vw,52px);letter-spacing:-.015em;margin:0;color:#F5F5F2;text-wrap:balance;text-transform:uppercase">ADT delivers the full experience journey — end to end</h2>
+      </div>
+      <div style="position:relative;margin-top:76px;height:1px;background:rgba(255,255,255,0.1)">
+        <div style="position:absolute;inset:0;background:linear-gradient(90deg,#F5B800,#F7D77C);transform-origin:left;animation:growX 1s linear both;animation-timeline:--journey;animation-range:contain 0% contain 100%"></div>
+        <div style="position:absolute;top:-7px;width:15px;height:15px;margin-left:-7px;border-radius:50%;background:#F7D77C;box-shadow:0 0 22px rgba(245,184,0,.8);animation:signalMove 1s linear both;animation-timeline:--journey;animation-range:contain 0% contain 100%">
+          <span style="position:absolute;inset:0;border:1px solid #F5B800;border-radius:50%;animation:ringPulse 1.6s ease-out infinite"></span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:18px;margin-top:26px">
+        <div style="animation:stageOn 1s linear both;animation-timeline:--journey;animation-range:contain 0% contain 21%">
+          <span style="display:block;width:9px;height:9px;border-radius:50%;background:#3a3a36;margin:-35px 0 26px 0;animation:stageDotOn 1s linear both;animation-timeline:--journey;animation-range:contain 0% contain 21%"></span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.24em;color:inherit">01</span>
+          <p style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(14px,1.15vw,20px);line-height:1.35;margin:10px 0 0;color:inherit;text-wrap:balance">Strategic consulting</p>
+        </div>
+        <div style="animation:stageOn 1s linear both;animation-timeline:--journey;animation-range:contain 16% contain 37%">
+          <span style="display:block;width:9px;height:9px;border-radius:50%;background:#3a3a36;margin:-35px 0 26px 0;animation:stageDotOn 1s linear both;animation-timeline:--journey;animation-range:contain 16% contain 37%"></span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.24em;color:inherit">02</span>
+          <p style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(14px,1.15vw,20px);line-height:1.35;margin:10px 0 0;color:inherit;text-wrap:balance">Technology solution design</p>
+        </div>
+        <div style="animation:stageOn 1s linear both;animation-timeline:--journey;animation-range:contain 33% contain 54%">
+          <span style="display:block;width:9px;height:9px;border-radius:50%;background:#3a3a36;margin:-35px 0 26px 0;animation:stageDotOn 1s linear both;animation-timeline:--journey;animation-range:contain 33% contain 54%"></span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.24em;color:inherit">03</span>
+          <p style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(14px,1.15vw,20px);line-height:1.35;margin:10px 0 0;color:inherit;text-wrap:balance">Experience &amp; interaction technology deployment</p>
+        </div>
+        <div style="animation:stageOn 1s linear both;animation-timeline:--journey;animation-range:contain 50% contain 71%">
+          <span style="display:block;width:9px;height:9px;border-radius:50%;background:#3a3a36;margin:-35px 0 26px 0;animation:stageDotOn 1s linear both;animation-timeline:--journey;animation-range:contain 50% contain 71%"></span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.24em;color:inherit">04</span>
+          <p style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(14px,1.15vw,20px);line-height:1.35;margin:10px 0 0;color:inherit;text-wrap:balance">Spatial design &amp; build</p>
+        </div>
+        <div style="animation:stageOn 1s linear both;animation-timeline:--journey;animation-range:contain 66% contain 87%">
+          <span style="display:block;width:9px;height:9px;border-radius:50%;background:#3a3a36;margin:-35px 0 26px 0;animation:stageDotOn 1s linear both;animation-timeline:--journey;animation-range:contain 66% contain 87%"></span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.24em;color:inherit">05</span>
+          <p style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(14px,1.15vw,20px);line-height:1.35;margin:10px 0 0;color:inherit;text-wrap:balance">Experience operation</p>
+        </div>
+        <div style="animation:stageOn 1s linear both;animation-timeline:--journey;animation-range:contain 82% contain 100%">
+          <span style="display:block;width:9px;height:9px;border-radius:50%;background:#3a3a36;margin:-35px 0 26px 0;animation:stageDotOn 1s linear both;animation-timeline:--journey;animation-range:contain 82% contain 100%"></span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.24em;color:inherit">06</span>
+          <p style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(14px,1.15vw,20px);line-height:1.35;margin:10px 0 0;color:inherit;text-wrap:balance">Communication &amp; amplification</p>
+        </div>
+      </div>
+      <div style="position:relative;margin-top:64px;height:min(38vh,360px);border:1px solid rgba(255,255,255,0.08);background:#070707;overflow:hidden">
+        <img src="assets/journey-stage-01.png" alt="Immersive installation blue stage" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0;animation:journeyImage 1s linear both;animation-timeline:--journey;animation-range:contain 0% contain 24%;will-change:opacity,transform,filter">
+        <img src="assets/journey-stage-02.png" alt="Immersive installation red stage" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0;animation:journeyImage 1s linear both;animation-timeline:--journey;animation-range:contain 19% contain 43%;will-change:opacity,transform,filter">
+        <img src="assets/journey-stage-03.png" alt="Immersive installation purple stage" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0;animation:journeyImage 1s linear both;animation-timeline:--journey;animation-range:contain 38% contain 62%;will-change:opacity,transform,filter">
+        <img src="assets/journey-stage-04.png" alt="Immersive installation blue purple stage" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0;animation:journeyImage 1s linear both;animation-timeline:--journey;animation-range:contain 57% contain 81%;will-change:opacity,transform,filter">
+        <img src="assets/journey-stage-05.png" alt="Immersive installation green stage" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0;animation:journeyImageLast 1s linear both;animation-timeline:--journey;animation-range:contain 76% contain 100%;will-change:opacity,transform,filter">
+        <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,7,7,.58),rgba(7,7,7,.1) 46%,rgba(7,7,7,.64)),linear-gradient(180deg,rgba(7,7,7,.28),rgba(7,7,7,.72));pointer-events:none"></div>
+        <span style="position:absolute;top:14px;left:18px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.26em;color:#F7D77C;z-index:2">IMMERSIVE INSTALLATION — JOURNEY VISUAL</span>
+        <div style="position:absolute;inset:0;display:grid;place-items:center;animation:stageVis 1s linear both;animation-timeline:--journey;animation-range:contain 0% contain 21%">
+          <div style="text-align:center"><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(48px,5vw,84px);color:rgba(247,215,124,.18)">01</span><p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.3em;color:#F7D77C;margin:8px 0 0">STRATEGIC&nbsp;IDEA</p><p style="font-size:13px;color:#9C9C96;margin:8px 0 0">Shaping the experience objective &amp; concept</p></div>
+        </div>
+        <div style="position:absolute;inset:0;display:grid;place-items:center;animation:stageVis 1s linear both;animation-timeline:--journey;animation-range:contain 16% contain 37%">
+          <div style="text-align:center"><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(48px,5vw,84px);color:rgba(247,215,124,.18)">02</span><p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.3em;color:#F7D77C;margin:8px 0 0">SOLUTION&nbsp;DIAGRAM</p><p style="font-size:13px;color:#9C9C96;margin:8px 0 0">End-to-end technology architecture</p></div>
+        </div>
+        <div style="position:absolute;inset:0;display:grid;place-items:center;animation:stageVis 1s linear both;animation-timeline:--journey;animation-range:contain 33% contain 54%">
+          <div style="text-align:center"><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(48px,5vw,84px);color:rgba(247,215,124,.18)">03</span><p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.3em;color:#F7D77C;margin:8px 0 0">INTERACTIVE&nbsp;TECHNOLOGY</p><p style="font-size:13px;color:#9C9C96;margin:8px 0 0">Touch displays, sensors &amp; interactive content</p></div>
+        </div>
+        <div style="position:absolute;inset:0;display:grid;place-items:center;animation:stageVis 1s linear both;animation-timeline:--journey;animation-range:contain 50% contain 71%">
+          <div style="text-align:center"><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(48px,5vw,84px);color:rgba(247,215,124,.18)">04</span><p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.3em;color:#F7D77C;margin:8px 0 0">SPATIAL&nbsp;DESIGN</p><p style="font-size:13px;color:#9C9C96;margin:8px 0 0">Designing &amp; building the experience space</p></div>
+        </div>
+        <div style="position:absolute;inset:0;display:grid;place-items:center;animation:stageVis 1s linear both;animation-timeline:--journey;animation-range:contain 66% contain 87%">
+          <div style="text-align:center"><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(48px,5vw,84px);color:rgba(247,215,124,.18)">05</span><p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.3em;color:#F7D77C;margin:8px 0 0">OPERATION</p><p style="font-size:13px;color:#9C9C96;margin:8px 0 0">Running, monitoring &amp; optimising the experience</p></div>
+        </div>
+        <div style="position:absolute;inset:0;display:grid;place-items:center;animation:stageVisLast 1s linear both;animation-timeline:--journey;animation-range:contain 82% contain 100%">
+          <div style="text-align:center"><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(48px,5vw,84px);color:rgba(247,215,124,.18)">06</span><p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.3em;color:#F7D77C;margin:8px 0 0">COMMUNICATION</p><p style="font-size:13px;color:#9C9C96;margin:8px 0 0">Amplifying the experience through media</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 — REAL-WORLD APPLICATIONS -->
+<section id="projects" data-screen-label="4 — Real-world applications" style="position:relative;padding:150px 48px 60px;background:#0a0a0a;border-top:1px solid rgba(255,255,255,0.06)">
+  <div style="max-width:1680px;margin:0 auto">
+    <div style="display:flex;align-items:baseline;gap:24px;animation:fadeUp 1.2s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 0% cover 18%">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.3em;color:#F5B800">04 / CASES</span>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(44px,5.5vw,96px);letter-spacing:-.02em;margin:0;color:#F5F5F2;text-transform:uppercase">Real-world applications</h2>
+    </div>
+
+    <div style="margin-top:100px;height:1px;background:rgba(255,255,255,0.09)"></div>
+
+    <div style="display:grid;grid-template-columns:minmax(48px,110px) minmax(300px,1fr) minmax(380px,1.15fr);gap:clamp(28px,4vw,72px);align-items:start;padding:110px 0 130px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#9C9C96;padding-top:14px;animation:fadeIn 1.2s ease both;animation-timeline:view();animation-range:entry 0% cover 30%">01</span>
+      <div>
+        <p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(30px,2.6vw,52px);line-height:1.08;letter-spacing:-.02em;margin:0;color:#F5F5F2;text-wrap:balance;animation:fadeUp 1.2s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 0% cover 32%">The Factory of the Future — Interactive Industrial Zone</p>
+        <div style="display:grid;gap:18px;margin-top:34px">
+          <div style="display:flex;gap:14px;align-items:baseline;animation:fadeUp 1.2s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 6% cover 38%"><span style="width:5px;height:5px;border-radius:50%;background:#F5B800;flex:none;transform:translateY(-3px)"></span><p style="margin:0;font-size:15px;color:#F5F5F2"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.24em;color:#5c5c58;display:block;margin-bottom:6px">CLIENT</span>[Client name — CMS]</p></div>
+          <div style="display:flex;gap:14px;align-items:baseline;animation:fadeUp 1.2s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 12% cover 44%"><span style="width:5px;height:5px;border-radius:50%;background:#F5B800;flex:none;transform:translateY(-3px)"></span><p style="margin:0;font-size:14px;font-weight:300;line-height:1.8;color:#9C9C96;text-wrap:pretty"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.24em;color:#5c5c58;display:block;margin-bottom:6px">TECHNOLOGY APPLICATION</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
+        </div>
+      </div>
+      <div style="position:relative;aspect-ratio:16/10;overflow:hidden;animation:maskReveal 1.4s cubic-bezier(.65,0,.35,1) both;animation-timeline:view();animation-range:entry 0% cover 42%">
+        <div style="position:absolute;inset:0;animation:parallaxY 1s linear both;animation-timeline:view();animation-range:cover 0% cover 100%;transition:transform 1.2s cubic-bezier(.22,1,.36,1)">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="project-01" shape="rect" src="assets/pvn-render.png" placeholder="Project 01 image / video" hint-size="100%,100%" style="position:absolute;inset:0"></x-import>
+        </div>
+      </div>
+    </div>
+    <div style="height:1px;background:rgba(255,255,255,0.09)"></div>
+
+    <div style="display:grid;grid-template-columns:minmax(48px,110px) minmax(300px,1fr) minmax(380px,1.15fr);gap:clamp(28px,4vw,72px);align-items:start;padding:110px 0 130px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#9C9C96;padding-top:14px;animation:fadeIn 1.2s ease both;animation-timeline:view();animation-range:entry 0% cover 30%">02</span>
+      <div>
+        <p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(30px,2.6vw,52px);line-height:1.08;letter-spacing:-.02em;margin:0;color:#F5F5F2;text-wrap:balance;animation:fadeUp 1.2s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 0% cover 32%">Smart Reception — AI Virtual Assistant &amp; Robot Fleet</p>
+        <div style="display:grid;gap:18px;margin-top:34px">
+          <div style="display:flex;gap:14px;align-items:baseline;animation:fadeUp 1.2s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 6% cover 38%"><span style="width:5px;height:5px;border-radius:50%;background:#F5B800;flex:none;transform:translateY(-3px)"></span><p style="margin:0;font-size:15px;color:#F5F5F2"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.24em;color:#5c5c58;display:block;margin-bottom:6px">CLIENT</span>[Client name — CMS]</p></div>
+          <div style="display:flex;gap:14px;align-items:baseline;animation:fadeUp 1.2s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 12% cover 44%"><span style="width:5px;height:5px;border-radius:50%;background:#F5B800;flex:none;transform:translateY(-3px)"></span><p style="margin:0;font-size:14px;font-weight:300;line-height:1.8;color:#9C9C96;text-wrap:pretty"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.24em;color:#5c5c58;display:block;margin-bottom:6px">TECHNOLOGY APPLICATION</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
+        </div>
+      </div>
+      <div style="position:relative;aspect-ratio:16/10;overflow:hidden;animation:maskReveal 1.4s cubic-bezier(.65,0,.35,1) both;animation-timeline:view();animation-range:entry 0% cover 42%">
+        <div style="position:absolute;inset:0;animation:parallaxY 1s linear both;animation-timeline:view();animation-range:cover 0% cover 100%">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="project-02" shape="rect" src="assets/adt-robots.jpg" placeholder="Project 02 image / video" hint-size="100%,100%" style="position:absolute;inset:0"></x-import>
+        </div>
+      </div>
+    </div>
+    <div style="height:1px;background:rgba(255,255,255,0.09)"></div>
+
+    <div style="display:grid;grid-template-columns:minmax(48px,110px) minmax(300px,1fr) minmax(380px,1.15fr);gap:clamp(28px,4vw,72px);align-items:start;padding:110px 0 130px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#9C9C96;padding-top:14px;animation:fadeIn 1.2s ease both;animation-timeline:view();animation-range:entry 0% cover 30%">03</span>
+      <div>
+        <p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(30px,2.6vw,52px);line-height:1.08;letter-spacing:-.02em;margin:0;color:#F5F5F2;text-wrap:balance;animation:fadeUp 1.2s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 0% cover 32%">Moneyverse — VR Immersive Financial Education</p>
+        <div style="display:grid;gap:18px;margin-top:34px">
+          <div style="display:flex;gap:14px;align-items:baseline;animation:fadeUp 1.2s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 6% cover 38%"><span style="width:5px;height:5px;border-radius:50%;background:#F5B800;flex:none;transform:translateY(-3px)"></span><p style="margin:0;font-size:15px;color:#F5F5F2"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.24em;color:#5c5c58;display:block;margin-bottom:6px">CLIENT</span>[Client name — CMS]</p></div>
+          <div style="display:flex;gap:14px;align-items:baseline;animation:fadeUp 1.2s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 12% cover 44%"><span style="width:5px;height:5px;border-radius:50%;background:#F5B800;flex:none;transform:translateY(-3px)"></span><p style="margin:0;font-size:14px;font-weight:300;line-height:1.8;color:#9C9C96;text-wrap:pretty"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.24em;color:#5c5c58;display:block;margin-bottom:6px">TECHNOLOGY APPLICATION</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
+        </div>
+      </div>
+      <div style="position:relative;aspect-ratio:16/10;overflow:hidden;animation:maskReveal 1.4s cubic-bezier(.65,0,.35,1) both;animation-timeline:view();animation-range:entry 0% cover 42%">
+        <div style="position:absolute;inset:0;animation:parallaxY 1s linear both;animation-timeline:view();animation-range:cover 0% cover 100%">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="project-03" shape="rect" src="assets/vr-user.jpg" placeholder="Project 03 image / video" hint-size="100%,100%" style="position:absolute;inset:0"></x-import>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 — RELATED NEWS -->
+<section id="news" data-screen-label="5 — Related news" style="position:relative;padding:150px 48px 130px;background:#070707;border-top:1px solid rgba(255,255,255,0.06)">
+  <div style="max-width:1680px;margin:0 auto">
+    <div style="display:flex;align-items:baseline;gap:24px;animation:fadeUp 1.2s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 0% cover 15%">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.3em;color:#F5B800">05 / NEWS</span>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(44px,5.5vw,96px);letter-spacing:-.02em;margin:0;color:#F5F5F2;text-transform:uppercase">Related news</h2>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:48px;margin-top:72px">
+      <a href="#news" style="flex:1 1 540px;min-width:min(540px,100%);display:block;animation:fadeUp 1.2s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 0% cover 32%">
+        <div style="position:relative;aspect-ratio:16/9;overflow:hidden;border:1px solid rgba(255,255,255,0.1)">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="article-01" shape="rect" src="assets/vr-user.jpg" placeholder="Article 01 image" hint-size="100%,100%" style="position:absolute;inset:0"></x-import>
+        </div>
+        <span style="display:inline-block;margin-top:28px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.28em;color:#F7D77C">FEATURED / 01</span>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,2.4vw,40px);line-height:1.2;margin:14px 0 0;color:#F5F5F2;text-wrap:balance;transition:color .3s">Immersion &amp; interaction: brands remembered 3–5× longer</h3>
+        <p style="font-size:15px;font-weight:300;line-height:1.75;color:#9C9C96;margin:16px 0 0;max-width:640px;text-wrap:pretty">In an era of information overload, the challenge is no longer how much content you deliver — but how much your audience remembers. Immersive experience is becoming the new answer.</p>
+        <span style="display:inline-flex;align-items:center;gap:10px;margin-top:24px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.2em;color:#F5B800;border-bottom:1px solid transparent;transition:all .3s" style-hover="border-bottom:1px solid #F5B800;gap:18px">READ ARTICLE <span>→</span></span>
+      </a>
+      <div style="flex:1 1 400px;min-width:min(400px,100%);display:flex;flex-direction:column;gap:44px">
+        <a href="#news" style="display:grid;grid-template-columns:170px 1fr;gap:24px;align-items:start;padding-bottom:38px;border-bottom:1px solid rgba(255,255,255,0.08);animation:fadeUp 1.2s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 6% cover 36%">
+          <div style="position:relative;aspect-ratio:4/3;overflow:hidden;border:1px solid rgba(255,255,255,0.1)">
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="article-02" shape="rect" src="assets/pvn-zone.jpg" placeholder="Article 02 image" hint-size="100%,100%" style="position:absolute;inset:0"></x-import>
+          </div>
+          <div>
+            <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:19px;line-height:1.35;margin:0;color:#F5F5F2;transition:color .3s" style-hover="color:#F7D77C">Personalised experience — the new trend in interactive exhibitions</h3>
+            <p style="font-size:13px;font-weight:300;line-height:1.7;color:#9C9C96;margin:10px 0 0;text-wrap:pretty">Brands are shifting from selling products to selling experiences — racing to personalise every touchpoint in pursuit of audience share.</p>
+            <span style="display:inline-block;margin-top:12px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:#F5B800;transition:letter-spacing .3s" style-hover="letter-spacing:.32em">→</span>
+          </div>
+        </a>
+        <a href="#news" style="display:grid;grid-template-columns:170px 1fr;gap:24px;align-items:start;padding-bottom:38px;border-bottom:1px solid rgba(255,255,255,0.08);animation:fadeUp 1.2s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 12% cover 42%">
+          <div style="position:relative;aspect-ratio:4/3;overflow:hidden;border:1px solid rgba(255,255,255,0.1)">
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="article-03" shape="rect" src="assets/adt-robots.jpg" placeholder="Article 03 image" hint-size="100%,100%" style="position:absolute;inset:0"></x-import>
+          </div>
+          <div>
+            <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:19px;line-height:1.35;margin:0;color:#F5F5F2;transition:color .3s" style-hover="color:#F7D77C">Smart reception halls — a turning point in enterprise digital transformation</h3>
+            <p style="font-size:13px;font-weight:300;line-height:1.7;color:#9C9C96;margin:10px 0 0;text-wrap:pretty">Smart reception systems are becoming a decisive leap in personalising customer experience and building trust from the very first glance.</p>
+            <span style="display:inline-block;margin-top:12px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:#F5B800;transition:letter-spacing .3s" style-hover="letter-spacing:.32em">→</span>
+          </div>
+        </a>
+        <a href="#news" style="position:relative;display:grid;grid-template-columns:170px 1fr;gap:24px;align-items:start;animation:fadeUp 1.2s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 18% cover 48%">
+          <span style="position:absolute;top:-16px;right:0;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.22em;color:#070707;background:#F5B800;padding:3px 8px">CMS — REPLACE CONTENT</span>
+          <div style="position:relative;aspect-ratio:4/3;overflow:hidden;border:1px solid rgba(255,255,255,0.1)">
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="article-04" shape="rect" src="assets/adt-robots.jpg" placeholder="Article 04 image" hint-size="100%,100%" style="position:absolute;inset:0"></x-import>
+          </div>
+          <div>
+            <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:19px;line-height:1.35;margin:0;color:#F5F5F2;transition:color .3s" style-hover="color:#F7D77C">Smart reception halls — a turning point in enterprise digital transformation</h3>
+            <p style="font-size:13px;font-weight:300;line-height:1.7;color:#9C9C96;margin:10px 0 0;text-wrap:pretty">Smart reception systems are becoming a decisive leap in personalising customer experience and building trust from the very first glance.</p>
+            <span style="display:inline-block;margin-top:12px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:#F5B800;transition:letter-spacing .3s" style-hover="letter-spacing:.32em">→</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 — CONTACT & FOOTER -->
+<section id="contact" data-screen-label="6 — Contact &amp; Footer" style="position:relative;padding:150px 48px 0;background:#0a0a0a;border-top:1px solid rgba(255,255,255,0.06);overflow:hidden">
+  <span style="position:absolute;bottom:220px;left:-30px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(120px,15vw,260px);line-height:1;color:transparent;-webkit-text-stroke:1px rgba(245,184,0,.1);pointer-events:none;user-select:none;white-space:nowrap">SAY HELLO</span>
+  <div style="max-width:1680px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));gap:80px;padding-bottom:130px;position:relative">
+    <div style="animation:fadeUp 1.2s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 0% cover 32%">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.3em;color:#F5B800">06 / CONTACT</span>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(48px,5vw,88px);letter-spacing:-.02em;line-height:1.02;margin:24px 0 0;color:#F5F5F2;text-transform:uppercase">Contact<br>us</h2>
+      <p style="font-size:15px;font-weight:300;line-height:1.75;color:#9C9C96;margin:28px 0 0;max-width:460px;text-wrap:pretty">Tell us what you need — the ADT Interactive team will get back to you shortly.</p>
+      <a href="#contact" data-magnetic="1" style="display:inline-flex;align-items:center;gap:12px;margin-top:44px;border:1px solid #F5B800;color:#F7D77C;font-weight:500;font-size:14px;letter-spacing:.08em;padding:17px 32px;transition:all .35s" style-hover="background:rgba(245,184,0,.1);box-shadow:0 0 30px rgba(245,184,0,.2)">[ Download ADT capability profile ]<span style="font-family:'IBM Plex Mono',monospace">↓</span></a>
+    </div>
+    <form data-dc-ref="form" onSubmit="{{ onSubmit }}" style="display:grid;gap:34px;align-content:start;animation:fadeUp 1.2s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 6% cover 38%">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:34px">
+        <label style="display:grid;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.24em;color:#9C9C96">FULL NAME</span><input type="text" name="name" required="required" placeholder="Your name" style="background:rgba(255,255,255,0.03);border:none;border-bottom:1px solid rgba(255,255,255,0.16);color:#F5F5F2;font-size:14px;padding:13px 14px;outline:none;transition:border-color .3s,background .3s" style-focus="border-bottom:1px solid #F5B800;background:rgba(245,184,0,0.05)"></label>
+        <label style="display:grid;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.24em;color:#9C9C96">COMPANY</span><input type="text" name="company" placeholder="Your company" style="background:rgba(255,255,255,0.03);border:none;border-bottom:1px solid rgba(255,255,255,0.16);color:#F5F5F2;font-size:14px;padding:13px 14px;outline:none;transition:border-color .3s,background .3s" style-focus="border-bottom:1px solid #F5B800;background:rgba(245,184,0,0.05)"></label>
+        <label style="display:grid;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.24em;color:#9C9C96">JOB TITLE</span><input type="text" name="title" placeholder="Your role" style="background:rgba(255,255,255,0.03);border:none;border-bottom:1px solid rgba(255,255,255,0.16);color:#F5F5F2;font-size:14px;padding:13px 14px;outline:none;transition:border-color .3s,background .3s" style-focus="border-bottom:1px solid #F5B800;background:rgba(245,184,0,0.05)"></label>
+        <label style="display:grid;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.24em;color:#9C9C96">EMAIL</span><input type="email" name="email" required="required" placeholder="you@company.com" style="background:rgba(255,255,255,0.03);border:none;border-bottom:1px solid rgba(255,255,255,0.16);color:#F5F5F2;font-size:14px;padding:13px 14px;outline:none;transition:border-color .3s,background .3s" style-focus="border-bottom:1px solid #F5B800;background:rgba(245,184,0,0.05)"></label>
+      </div>
+      <label style="display:grid;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.24em;color:#9C9C96">HOW CAN WE HELP YOU?</span><textarea name="message" rows="4" placeholder="Briefly describe your needs..." style="background:rgba(255,255,255,0.03);border:none;border-bottom:1px solid rgba(255,255,255,0.16);color:#F5F5F2;font-size:14px;padding:13px 14px;outline:none;resize:vertical;transition:border-color .3s,background .3s" style-focus="border-bottom:1px solid #F5B800;background:rgba(245,184,0,0.05)"></textarea></label>
+      <button type="submit" data-magnetic="1" style="justify-self:start;display:inline-flex;align-items:center;gap:12px;background:linear-gradient(120deg,#F5B800,#F7D77C);color:#070707;border:none;cursor:none;font-family:'Be Vietnam Pro',sans-serif;font-weight:600;font-size:14px;letter-spacing:.08em;padding:18px 38px;transition:box-shadow .35s" style-hover="box-shadow:0 0 40px rgba(245,184,0,.4)">Submit<span style="font-family:'IBM Plex Mono',monospace">→</span></button>
+    </form>
+  </div>
+
+  <footer style="border-top:1px solid rgba(255,255,255,0.08);background:#070707;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:80px 80px;animation:slowPan 30s linear infinite;position:relative">
+    <div style="max-width:1680px;margin:0 auto;padding:76px 48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:48px;align-items:start">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px">
+          <span style="width:38px;height:38px;background:linear-gradient(135deg,#F5B800,#F7D77C);display:grid;place-items:center;font-family:'Space Grotesk',sans-serif;font-weight:700;color:#070707;font-size:16px">A</span>
+          <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;letter-spacing:.12em">ADT&nbsp;GLOBAL</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;margin-top:26px">
+          <span style="width:6px;height:6px;border-radius:50%;background:#F5B800;animation:pulseDot 2.4s ease-in-out infinite"></span>
+          <span style="width:6px;height:6px;border-radius:50%;background:#F5B800;animation:pulseDot 2.4s ease-in-out infinite;animation-delay:.5s"></span>
+          <span style="width:6px;height:6px;border-radius:50%;background:#F5B800;animation:pulseDot 2.4s ease-in-out infinite;animation-delay:1s"></span>
+          <span style="height:1px;flex:0 0 90px;background:linear-gradient(90deg,#F5B800,transparent)"></span>
+        </div>
+      </div>
+      <div><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.26em;color:#5c5c58;display:block">ADDRESS</span><p style="font-size:14px;font-weight:300;line-height:1.7;color:#9C9C96;margin:12px 0 0">NIC Building, Alley 7 Ton That Thuyet,<br>Cau Giay, Ha Noi</p></div>
+      <div><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.26em;color:#5c5c58;display:block">PHONE</span><p style="font-size:14px;margin:12px 0 0"><a href="tel:+84969304486" style="color:#9C9C96;transition:color .3s" style-hover="color:#F7D77C">+84 96 930 4486</a></p></div>
+      <div><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.26em;color:#5c5c58;display:block">EMAIL</span><p style="font-size:14px;margin:12px 0 0"><a href="mailto:marketing@adtglobal.vn" style="color:#9C9C96;transition:color .3s" style-hover="color:#F7D77C">marketing@adtglobal.vn</a></p></div>
+    </div>
+  </footer>
+</section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;customCursor&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Interaction&quot;},&quot;particleDensity&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:60,&quot;min&quot;:0,&quot;max&quot;:100,&quot;step&quot;:10,&quot;unit&quot;:&quot;%&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Interaction&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    this.cleanup = [];
+    if (this.isFigmaCapture()) {
+      this.prepareFigmaCapture();
+      return;
+    }
+    this.initSmoothScroll();
+    this.initScrollPolish();
+    this.initHeroScrollTransitions();
+    this.initRealWorldTransitions();
+    this.initHeroWordHover();
+    if (this.props.customCursor ?? true) this.initCursor();
+    this.initMagnetic();
+    this.initHeroCanvas();
+  }
+  componentWillUnmount() { (this.cleanup || []).forEach(fn => fn()); }
+
+  isFigmaCapture() {
+    return (window.location.hash || '').includes('figmacapture=') || (window.location.search || '').includes('figmacapture=');
+  }
+
+  prepareFigmaCapture() {
+    const reveal = () => {
+      document.documentElement.classList.add('is-figma-capture');
+      document.body.style.cursor = 'default';
+      document.querySelector('[data-dc-ref="cursor"]')?.remove();
+
+      Array.from(document.querySelectorAll('[style*="animation-timeline:view"],[style*="animation-timeline: view"]')).forEach(el => {
+        el.style.animation = 'none';
+        el.style.animationTimeline = 'auto';
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+        el.style.filter = 'none';
+        el.style.clipPath = 'inset(0 0 0 0)';
+      });
+
+      const immersive = document.querySelector('#hero [data-hero-word="immersive"]');
+      const interactive = document.querySelector('#hero [data-hero-word="interactive"]');
+      if (immersive) {
+        immersive.style.color = 'transparent';
+        immersive.style.webkitTextStrokeWidth = '2px';
+        immersive.style.webkitTextStrokeColor = '#F5B800';
+        immersive.style.textShadow = '0 0 36px rgba(245,184,0,.28)';
+        immersive.style.opacity = '1';
+        immersive.style.transform = 'none';
+        immersive.style.filter = 'none';
+        immersive.style.clipPath = 'inset(0 0 0 0)';
+      }
+      if (interactive) {
+        interactive.style.color = '#F5B800';
+        interactive.style.webkitTextStrokeWidth = '2px';
+        interactive.style.webkitTextStrokeColor = '#F5B800';
+        interactive.style.textShadow = '0 0 44px rgba(245,184,0,.36)';
+        interactive.style.opacity = '1';
+        interactive.style.transform = 'none';
+        interactive.style.filter = 'none';
+        interactive.style.clipPath = 'inset(0 0 0 0)';
+      }
+
+      const journey = document.querySelector('#journey');
+      if (journey) {
+        journey.style.height = 'auto';
+        journey.style.viewTimelineName = 'none';
+        const sticky = journey.firstElementChild;
+        if (sticky) {
+          sticky.style.position = 'relative';
+          sticky.style.top = 'auto';
+          sticky.style.height = 'auto';
+          sticky.style.minHeight = '100vh';
+        }
+        Array.from(journey.querySelectorAll('[style*="animation-timeline"]')).forEach(el => {
+          el.style.animation = 'none';
+          el.style.animationTimeline = 'auto';
+        });
+        const journeyImages = Array.from(journey.querySelectorAll('img[src*="journey-stage"]'));
+        journeyImages.forEach((img, index) => {
+          img.style.opacity = index === 0 ? '1' : '0';
+          img.style.transform = 'none';
+          img.style.filter = 'brightness(.82) saturate(1.08)';
+        });
+        Array.from(journey.querySelectorAll('[style*="place-items:center"]')).forEach((el, index) => {
+          el.style.display = index === 0 ? 'grid' : 'none';
+          el.style.opacity = index === 0 ? '1' : '0';
+          el.style.transform = 'none';
+        });
+      }
+
+      const projects = document.querySelector('#projects');
+      if (projects) {
+        const rows = Array.from(projects.firstElementChild?.children || [])
+          .filter(el => el.children.length >= 3 && el.style.display === 'grid' && el.style.gridTemplateColumns.includes('minmax(48px'));
+        rows.forEach((row, index) => {
+          const number = row.children[0];
+          const copy = row.children[1];
+          const frame = row.children[2];
+          const inner = frame?.firstElementChild;
+          row.setAttribute('data-project-row', '');
+          row.classList.add('is-inview');
+          row.style.setProperty('--row-delay', `${index * 90}ms`);
+          row.style.animation = 'none';
+          row.style.opacity = '1';
+          row.style.transform = 'none';
+          row.style.filter = 'none';
+          if (number) {
+            number.style.opacity = '1';
+            number.style.transform = 'none';
+            number.style.animation = 'none';
+          }
+          if (copy) {
+            copy.style.opacity = '1';
+            copy.style.transform = 'none';
+            copy.style.animation = 'none';
+          }
+          if (frame) {
+            frame.setAttribute('data-project-media', '');
+            frame.style.animation = 'none';
+            frame.style.opacity = '1';
+            frame.style.clipPath = 'inset(0 0 0 0)';
+            frame.style.transform = 'none';
+            frame.style.filter = 'brightness(1) saturate(1)';
+          }
+          if (inner) {
+            inner.setAttribute('data-project-media-inner', '');
+            inner.style.animation = 'none';
+            inner.style.transform = 'none';
+          }
+        });
+        Array.from(projects.firstElementChild?.children || [])
+          .filter(el => el.tagName === 'DIV' && !el.querySelector('x-import') && el.getBoundingClientRect().height <= 2)
+          .forEach(el => {
+            el.setAttribute('data-project-divider', '');
+            el.classList.add('is-inview');
+            el.style.opacity = '1';
+            el.style.transform = 'scaleX(1)';
+          });
+      }
+    };
+
+    reveal();
+    window.setTimeout(reveal, 400);
+    window.setTimeout(reveal, 1400);
+  }
+
+  initSmoothScroll() {
+    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const coarse = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+    if (reduced || coarse || !window.requestAnimationFrame) {
+      document.documentElement.classList.add('is-native-scroll');
+      return;
+    }
+
+    let current = window.scrollY || 0;
+    let target = current;
+    let raf = 0;
+    let programmatic = false;
+    const maxScroll = () => Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+    const clamp = value => Math.max(0, Math.min(maxScroll(), value));
+    const start = () => { if (!raf) raf = requestAnimationFrame(step); };
+    const setScroll = value => {
+      programmatic = true;
+      window.scrollTo(0, value);
+      programmatic = false;
+    };
+    const step = () => {
+      const delta = target - current;
+      if (Math.abs(delta) < .35) {
+        current = target;
+        setScroll(Math.round(current));
+        raf = 0;
+        return;
+      }
+      current += delta * .115;
+      setScroll(current);
+      raf = requestAnimationFrame(step);
+    };
+    const isEditable = el => el && el.closest && el.closest('input,textarea,select,iframe,[contenteditable="true"],[data-native-scroll]');
+    const onWheel = e => {
+      if (e.ctrlKey || e.metaKey || isEditable(e.target)) return;
+      e.preventDefault();
+      if (!raf) current = target = window.scrollY || 0;
+      const unit = e.deltaMode === 1 ? 34 : e.deltaMode === 2 ? window.innerHeight : 1;
+      target = clamp(target + e.deltaY * unit * .92);
+      start();
+    };
+    const onKey = e => {
+      if (e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey || isEditable(e.target)) return;
+      const moves = {
+        ArrowDown: 96,
+        ArrowUp: -96,
+        PageDown: window.innerHeight * .86,
+        PageUp: -window.innerHeight * .86,
+        Home: -Infinity,
+        End: Infinity,
+        Space: e.shiftKey ? -window.innerHeight * .86 : window.innerHeight * .86
+      };
+      if (!(e.key in moves)) return;
+      e.preventDefault();
+      if (!raf) current = target = window.scrollY || 0;
+      target = moves[e.key] === Infinity ? maxScroll() : moves[e.key] === -Infinity ? 0 : clamp(target + moves[e.key]);
+      start();
+    };
+    const onClick = e => {
+      const clickTarget = e.target && (e.target.closest ? e.target : e.target.parentElement);
+      const a = clickTarget && clickTarget.closest && clickTarget.closest('a[href^="#"]');
+      if (!a) return;
+      const hash = a.getAttribute('href');
+      if (!hash || hash === '#') return;
+      const id = decodeURIComponent(hash.slice(1));
+      const dest = document.getElementById(id);
+      if (!dest) return;
+      e.preventDefault();
+      e.stopPropagation();
+      if (!raf) current = target = window.scrollY || 0;
+      const headerH = document.querySelector('header')?.getBoundingClientRect().height || 0;
+      target = clamp(dest.getBoundingClientRect().top + window.scrollY - headerH - 14);
+      history.pushState(null, '', hash);
+      start();
+    };
+    const onScroll = () => {
+      if (!programmatic && !raf) current = target = window.scrollY || 0;
+    };
+    const onResize = () => {
+      target = clamp(target);
+      current = clamp(current);
+    };
+
+    window.addEventListener('wheel', onWheel, { passive: false });
+    window.addEventListener('keydown', onKey);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onResize);
+    document.addEventListener('click', onClick, true);
+    this.cleanup.push(() => {
+      window.removeEventListener('wheel', onWheel);
+      window.removeEventListener('keydown', onKey);
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onResize);
+      document.removeEventListener('click', onClick, true);
+      if (raf) cancelAnimationFrame(raf);
+    });
+  }
+
+  initScrollPolish() {
+    const animated = Array.from(document.querySelectorAll('[style*="animation:"]'));
+    animated.forEach(el => {
+      el.style.animationTimingFunction = 'var(--ease-zeit)';
+      el.style.backfaceVisibility = 'hidden';
+      el.style.willChange = el.style.willChange || 'transform, opacity, clip-path, filter';
+    });
+
+    const heroVisual = document.querySelector('#hero x-import, #hero img, #hero video, #hero canvas');
+    if (!heroVisual || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const p = Math.min(1, Math.max(0, window.scrollY / Math.max(1, window.innerHeight)));
+      heroVisual.style.transform = `translate3d(0,${p * 34}px,0) scale(${1 + p * .035})`;
+      heroVisual.style.opacity = String(1 - p * .16);
+      heroVisual.style.willChange = 'transform, opacity';
+    };
+    const request = () => { if (!raf) raf = requestAnimationFrame(update); };
+    update();
+    window.addEventListener('scroll', request, { passive: true });
+    window.addEventListener('resize', request);
+    this.cleanup.push(() => {
+      window.removeEventListener('scroll', request);
+      window.removeEventListener('resize', request);
+      if (raf) cancelAnimationFrame(raf);
+    });
+  }
+
+  initRealWorldTransitions() {
+    const projects = document.querySelector('#projects');
+    if (!projects) return;
+
+    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const rows = Array.from(projects.firstElementChild?.children || [])
+      .filter(el => el.children.length >= 3 && el.style.display === 'grid' && el.style.gridTemplateColumns.includes('minmax(48px'))
+      .map(row => {
+        const frame = row.children[2];
+        const inner = frame && frame.firstElementChild;
+        return frame && inner ? { row, frame, inner, number: row.children[0], copy: row.children[1] } : null;
+      })
+      .filter(Boolean);
+
+    const ease = 'cubic-bezier(.16,1,.3,1)';
+    const setTransition = (el, value, delay) => {
+      if (!el) return;
+      el.style.transition = value;
+      el.style.transitionDelay = delay;
+    };
+    const setProjectState = (item, active, exitSide = 'below') => {
+      if (!item) return;
+      const fromAbove = exitSide === 'above';
+      const rowY = fromAbove ? '-58px' : '74px';
+      const copyY = fromAbove ? '-30px' : '34px';
+      const mediaX = fromAbove ? '-46px' : '46px';
+      const mediaClip = fromAbove ? 'inset(0 100% 0 0)' : 'inset(0 0 0 100%)';
+      item.row.style.opacity = active ? '1' : '.16';
+      item.row.style.transform = active ? 'translate3d(0,0,0) scale(1)' : `translate3d(0,${rowY},0) scale(.985)`;
+      item.row.style.filter = active ? 'blur(0)' : 'blur(12px)';
+      item.number.style.opacity = active ? '1' : '0';
+      item.number.style.transform = active ? 'translate3d(0,0,0)' : `translate3d(-22px,${fromAbove ? '-8px' : '0'},0)`;
+      item.copy.style.opacity = active ? '1' : '0';
+      item.copy.style.transform = active ? 'translate3d(0,0,0)' : `translate3d(0,${copyY},0)`;
+      item.frame.style.opacity = active ? '1' : '.35';
+      item.frame.style.clipPath = active ? 'inset(0 0 0 0)' : mediaClip;
+      item.frame.style.transform = active ? 'translate3d(0,0,0) scale(1)' : `translate3d(${mediaX},0,0) scale(.975)`;
+      item.frame.style.filter = active ? 'brightness(1) saturate(1)' : 'brightness(.7) saturate(.85)';
+    };
+
+    rows.forEach((item, index) => {
+      item.row.setAttribute('data-project-row', '');
+      item.row.style.setProperty('--row-delay', `${index * 90}ms`);
+      item.frame.setAttribute('data-project-media', '');
+      item.frame.style.animation = 'none';
+      item.inner.setAttribute('data-project-media-inner', '');
+      item.inner.style.animation = 'none';
+      Array.from(item.row.querySelectorAll('[style*="animation"]')).forEach(el => {
+        el.style.animation = 'none';
+      });
+      const delay = `${index * 90}ms`;
+      setTransition(item.row, `opacity 1s ${ease}, transform 1.25s ${ease}, filter 1.25s ${ease}`, delay);
+      setTransition(item.number, `opacity .9s ${ease}, transform 1s ${ease}`, `calc(${delay} + 80ms)`);
+      setTransition(item.copy, `opacity 1s ${ease}, transform 1.08s ${ease}`, `calc(${delay} + 160ms)`);
+      setTransition(item.frame, `opacity 1.05s ${ease}, clip-path 1.25s ${ease}, transform 1.25s ${ease}, filter 1.25s ${ease}`, `calc(${delay} + 260ms)`);
+      setProjectState(item, false);
+      if (reduced) {
+        item.row.classList.add('is-inview');
+        setProjectState(item, true);
+      }
+    });
+
+    const dividers = Array.from(projects.firstElementChild?.children || [])
+      .filter(el => el.tagName === 'DIV' && !el.querySelector('x-import') && el.getBoundingClientRect().height <= 2);
+    dividers.forEach(el => el.setAttribute('data-project-divider', ''));
+
+    if (!rows.length || reduced) {
+      dividers.forEach(el => el.classList.add('is-inview'));
+      return;
+    }
+
+    let raf = 0;
+    rows.forEach(item => {
+      item.active = false;
+      item.exitSide = 'below';
+    });
+    const updateRealWorld = () => {
+      raf = 0;
+      const vh = window.innerHeight || 1;
+      rows.forEach(item => {
+        const { row, inner } = item;
+        const rect = row.getBoundingClientRect();
+        const inBand = rect.top < vh * .86 && rect.bottom > vh * .14;
+        const aboveBand = rect.bottom <= vh * .08;
+        const belowBand = rect.top >= vh * .92;
+
+        if (inBand && !item.active) {
+          item.active = true;
+          row.classList.add('is-inview');
+          setProjectState(item, true);
+        } else if (!inBand && item.active && (aboveBand || belowBand)) {
+          item.active = false;
+          item.exitSide = aboveBand ? 'above' : 'below';
+          row.classList.remove('is-inview');
+          setProjectState(item, false, item.exitSide);
+        } else if (!item.active) {
+          const nextExitSide = aboveBand ? 'above' : belowBand ? 'below' : item.exitSide;
+          if (nextExitSide !== item.exitSide) {
+            item.exitSide = nextExitSide;
+            setProjectState(item, false, item.exitSide);
+          }
+        }
+
+        const progress = Math.max(0, Math.min(1, (vh - rect.top) / (vh + rect.height)));
+        const y = (0.5 - progress) * 64;
+        inner.style.setProperty('--project-parallax', `${y.toFixed(1)}px`);
+      });
+
+      dividers.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        const inBand = rect.top < vh * .92 && rect.bottom > vh * .08;
+        el.classList.toggle('is-inview', inBand);
+      });
+    };
+    const request = () => { if (!raf) raf = requestAnimationFrame(updateRealWorld); };
+    updateRealWorld();
+    window.addEventListener('scroll', request, { passive: true });
+    window.addEventListener('resize', request);
+    this.cleanup.push(() => {
+      window.removeEventListener('scroll', request);
+      window.removeEventListener('resize', request);
+      if (raf) cancelAnimationFrame(raf);
+    });
+  }
+
+  initHeroScrollTransitions() {
+    const hero = document.querySelector('#hero');
+    const title = hero?.querySelector('h1');
+    if (!hero || !title) return;
+
+    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const content = title.parentElement;
+    const eyebrow = content?.children?.[0];
+    const titleLines = Array.from(title.children || []);
+    const lowerGrid = title.nextElementSibling;
+    const bodyCopy = lowerGrid?.children?.[0];
+    const ctas = lowerGrid?.children?.[1];
+    const marquee = hero.lastElementChild;
+
+    const items = [
+      { el: eyebrow, delay: 0, y: 34, clip: false },
+      ...titleLines.map((el, index) => ({ el, delay: 220 + index * 300, y: 54, clip: true, word: el.dataset?.heroWord || '' })),
+      { el: bodyCopy, delay: 1160, y: 38, clip: false },
+      { el: ctas, delay: 1380, y: 38, clip: false },
+      { el: marquee, delay: 1600, y: 22, clip: false }
+    ].filter(item => item.el);
+
+    const ease = 'cubic-bezier(.16,1,.3,1)';
+    items.forEach(({ el, delay, clip, word }) => {
+      el.setAttribute('data-hero-scroll-item', '');
+      el.style.animation = 'none';
+      const wordTransition = word ? `, color .9s ${ease}, -webkit-text-stroke-color .9s ${ease}, -webkit-text-stroke-width .9s ${ease}, text-shadow .9s ${ease}` : '';
+      el.style.transition = `opacity .95s ${ease}, transform 1.15s ${ease}, filter 1.05s ${ease}${clip ? `, clip-path 1.05s ${ease}` : ''}${wordTransition}`;
+      el.style.transitionDelay = `${delay}ms`;
+      el.style.willChange = clip ? 'opacity, transform, filter, clip-path, color' : 'opacity, transform, filter';
+    });
+
+    const setHeroState = (active, exitSide = 'above') => {
+      const fromAbove = exitSide === 'above';
+      items.forEach(({ el, y, clip, word }) => {
+        el.style.opacity = active ? '1' : '0';
+        el.style.transform = active ? 'translate3d(0,0,0)' : `translate3d(0,${fromAbove ? -y : y}px,0)`;
+        el.style.filter = active ? 'blur(0)' : 'blur(10px)';
+        if (clip) el.style.clipPath = active ? 'inset(0 0 0 0)' : (fromAbove ? 'inset(0 0 100% 0)' : 'inset(100% 0 0 0)');
+        if (word === 'immersive') {
+          el.style.color = active ? 'transparent' : '#F5F5F2';
+          el.style.webkitTextStrokeWidth = active ? '2px' : '0px';
+          el.style.webkitTextStrokeColor = active ? '#F5B800' : 'transparent';
+          el.style.textShadow = active ? '0 0 36px rgba(245,184,0,.28)' : 'none';
+        }
+        if (word === 'interactive') {
+          el.style.color = active ? '#F5B800' : 'transparent';
+          el.style.webkitTextStrokeWidth = '2px';
+          el.style.webkitTextStrokeColor = '#F5B800';
+          el.style.textShadow = active ? '0 0 44px rgba(245,184,0,.36)' : 'none';
+        }
+      });
+      hero.classList.toggle('is-hero-inview', active);
+    };
+
+    if (reduced) {
+      setHeroState(true);
+      return;
+    }
+
+    let active = false;
+    let exitSide = 'below';
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const vh = window.innerHeight || 1;
+      const rect = hero.getBoundingClientRect();
+      const inBand = rect.top < vh * .82 && rect.bottom > vh * .18;
+      const aboveBand = rect.bottom <= vh * .10;
+      const belowBand = rect.top >= vh * .90;
+
+      if (inBand && !active) {
+        active = true;
+        setHeroState(true, exitSide);
+      } else if (!inBand && active && (aboveBand || belowBand)) {
+        active = false;
+        exitSide = aboveBand ? 'above' : 'below';
+        setHeroState(false, exitSide);
+      } else if (!active) {
+        const nextExitSide = aboveBand ? 'above' : belowBand ? 'below' : exitSide;
+        if (nextExitSide !== exitSide) {
+          exitSide = nextExitSide;
+          setHeroState(false, exitSide);
+        }
+      }
+    };
+    const request = () => { if (!raf) raf = requestAnimationFrame(update); };
+    setHeroState(false, 'below');
+    request();
+    window.addEventListener('scroll', request, { passive: true });
+    window.addEventListener('resize', request);
+    this.cleanup.push(() => {
+      window.removeEventListener('scroll', request);
+      window.removeEventListener('resize', request);
+      if (raf) cancelAnimationFrame(raf);
+    });
+  }
+
+  initHeroWordHover() {
+    const words = Array.from(document.querySelectorAll('#hero [data-hero-word]'));
+    const handlers = words.map(el => {
+      const enter = () => el.classList.add('is-hero-hover');
+      const leave = () => el.classList.remove('is-hero-hover');
+      el.addEventListener('pointerenter', enter);
+      el.addEventListener('pointerleave', leave);
+      el.addEventListener('mouseenter', enter);
+      el.addEventListener('mouseleave', leave);
+      return () => {
+        el.removeEventListener('pointerenter', enter);
+        el.removeEventListener('pointerleave', leave);
+        el.removeEventListener('mouseenter', enter);
+        el.removeEventListener('mouseleave', leave);
+      };
+    });
+    this.cleanup.push(() => handlers.forEach(fn => fn()));
+  }
+
+  initCursor() {
+    const el = this.refs?.cursor || document.querySelector('[data-dc-ref="cursor"]'); if (!el) return;
+    let tx = -100, ty = -100, x = -100, y = -100, raf;
+    const move = e => { tx = e.clientX; ty = e.clientY; };
+    const loop = () => {
+      x += (tx - x) * 0.22; y += (ty - y) * 0.22;
+      el.style.transform = `translate(${x - 7}px,${y - 7}px)`;
+      raf = requestAnimationFrame(loop);
+    };
+    window.addEventListener('mousemove', move); loop();
+    const over = e => {
+      const on = e.target.closest && e.target.closest('a,button,input,textarea,label');
+      el.style.width = on ? '38px' : '14px'; el.style.height = on ? '38px' : '14px';
+      el.style.background = on ? 'rgba(245,184,0,.12)' : 'transparent';
+    };
+    window.addEventListener('mouseover', over);
+    this.cleanup.push(() => { window.removeEventListener('mousemove', move); window.removeEventListener('mouseover', over); cancelAnimationFrame(raf); });
+  }
+
+  initMagnetic() {
+    const els = Array.from(document.querySelectorAll('[data-magnetic]'));
+    const handlers = els.map(el => {
+      const mm = e => {
+        const r = el.getBoundingClientRect();
+        const dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
+        el.style.transform = `translate(${dx * 0.12}px,${dy * 0.18}px)`;
+      };
+      const ml = () => { el.style.transform = ''; };
+      el.addEventListener('mousemove', mm); el.addEventListener('mouseleave', ml);
+      return () => { el.removeEventListener('mousemove', mm); el.removeEventListener('mouseleave', ml); };
+    });
+    this.cleanup.push(() => handlers.forEach(h => h()));
+  }
+
+  initHeroCanvas() {
+    const canvas = this.refs?.heroCanvas || document.querySelector('[data-dc-ref="heroCanvas"]');
+    const frame = this.refs?.heroFrame || document.querySelector('[data-dc-ref="heroFrame"]') || document.querySelector('#hero');
+    if (!canvas || !frame) return;
+    const ctx = canvas.getContext('2d');
+    const density = (this.props.particleDensity ?? 60) / 100;
+    let raf, ripples = [], trail = [], mouse = null;
+    const resize = () => { const r = canvas.getBoundingClientRect(); canvas.width = r.width * devicePixelRatio; canvas.height = r.height * devicePixelRatio; ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0); };
+    resize();
+    const ro = new ResizeObserver(resize); ro.observe(canvas);
+    const N = Math.round(60 * density);
+    const parts = Array.from({ length: N }, () => ({ x: Math.random(), y: Math.random(), vx: (Math.random() - .5) * .0006, vy: (Math.random() - .5) * .0006, r: .6 + Math.random() * 1.6 }));
+    const onMove = e => {
+      const r = canvas.getBoundingClientRect();
+      const x = e.clientX - r.left, y = e.clientY - r.top;
+      mouse = { x, y };
+      trail.push({ x, y, life: 1 });
+      if (trail.length > 44) trail.shift();
+      if (!this._lastRip || performance.now() - this._lastRip > 120) { ripples.push({ x, y, r: 0, life: 1 }); this._lastRip = performance.now(); }
+    };
+    const onLeave = () => { mouse = null; };
+    frame.addEventListener('pointermove', onMove);
+    frame.addEventListener('pointerleave', onLeave);
+    const draw = () => {
+      const r = canvas.getBoundingClientRect(), w = r.width, h = r.height;
+      ctx.clearRect(0, 0, w, h);
+      for (const p of parts) {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > 1) p.vx *= -1; if (p.y < 0 || p.y > 1) p.vy *= -1;
+        let px = p.x * w, py = p.y * h, glow = .25;
+        if (mouse) { const d = Math.hypot(px - mouse.x, py - mouse.y); if (d < 180) { glow = .25 + (1 - d / 180) * .65; px += (px - mouse.x) * .05; py += (py - mouse.y) * .05; } }
+        ctx.beginPath(); ctx.arc(px, py, p.r, 0, 7); ctx.fillStyle = `rgba(247,215,124,${glow})`; ctx.fill();
+      }
+      if (trail.length > 1) {
+        for (let i = 1; i < trail.length; i++) {
+          const a = trail[i - 1], b = trail[i]; b.life *= .965;
+          ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
+          ctx.strokeStyle = `rgba(245,184,0,${b.life * .5})`; ctx.lineWidth = 1.4; ctx.stroke();
+        }
+        trail = trail.filter(t => t.life > .04);
+      }
+      for (const rp of ripples) {
+        rp.r += 2; rp.life *= .955;
+        ctx.beginPath(); ctx.arc(rp.x, rp.y, rp.r, 0, 7);
+        ctx.strokeStyle = `rgba(245,184,0,${rp.life * .45})`; ctx.lineWidth = 1; ctx.stroke();
+      }
+      ripples = ripples.filter(rp => rp.life > .05);
+      raf = requestAnimationFrame(draw);
+    };
+    draw();
+    this.cleanup.push(() => { cancelAnimationFrame(raf); ro.disconnect(); frame.removeEventListener('pointermove', onMove); frame.removeEventListener('pointerleave', onLeave); });
+  }
+
+  renderVals() {
+    return {
+      onSubmit: e => {
+        e.preventDefault();
+        const btn = e.currentTarget.querySelector('button[type=submit]');
+        if (btn) { btn.textContent = 'Sent — thank you'; btn.style.pointerEvents = 'none'; btn.style.opacity = '.75'; }
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

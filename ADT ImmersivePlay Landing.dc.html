@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ImmersivePlay™ — ADT Interactive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Be+Vietnam+Pro:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#070707;color:#F5F5F2;font-family:'Be Vietnam Pro',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:#F5F5F2;text-decoration:none}
+a:hover{color:#F7D77C}
+::selection{background:#F5B800;color:#070707}
+input,textarea{font-family:'Be Vietnam Pro',sans-serif}
+input::placeholder,textarea::placeholder{color:#6b6b66}
+@keyframes fadeUp{from{opacity:0;transform:translateY(44px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes lineGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes maskReveal{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes parallaxY{from{transform:translateY(4%) scale(1.08)}to{transform:translateY(-4%) scale(1.08)}}
+@keyframes headerGlass{from{background:rgba(7,7,7,0);border-bottom:1px solid rgba(255,255,255,0);backdrop-filter:blur(0px)}to{background:rgba(10,10,10,.74);border-bottom:1px solid rgba(255,255,255,.08);backdrop-filter:blur(18px)}}
+@keyframes growX{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes signalMove{from{left:0%}to{left:100%}}
+@keyframes stageOn{0%{opacity:.3;color:#9C9C96}18%{opacity:1;color:#F5F5F2}82%{opacity:1;color:#F5F5F2}100%{opacity:.45;color:#9C9C96}}
+@keyframes stageDotOn{0%{background:#3a3a36;box-shadow:none;transform:scale(1)}18%{background:#F7D77C;box-shadow:0 0 18px rgba(245,184,0,.55);transform:scale(1.5)}82%{background:#F7D77C;box-shadow:0 0 18px rgba(245,184,0,.55);transform:scale(1.5)}100%{background:#6b5d2e;box-shadow:none;transform:scale(1)}}
+@keyframes stageVis{0%{opacity:0;transform:translateY(26px)}22%{opacity:1;transform:none}78%{opacity:1;transform:none}100%{opacity:0;transform:translateY(-18px)}}
+@keyframes stageVisLast{0%{opacity:0;transform:translateY(26px)}30%{opacity:1;transform:none}100%{opacity:1;transform:none}}
+@keyframes pulseDot{0%,100%{opacity:.35;transform:scale(1)}50%{opacity:1;transform:scale(1.6)}}
+@keyframes ringPulse{0%{transform:scale(.6);opacity:.8}100%{transform:scale(2.4);opacity:0}}
+@keyframes slowPan{from{background-position:0 0}to{background-position:80px 80px}}
+</style>
+</helmet>
+
+<div style="position:relative;background:#070707;cursor:none">
+<div data-dc-ref="cursor" style="position:fixed;left:0;top:0;width:14px;height:14px;border:1px solid #F5B800;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-100px,-100px);transition:width .2s,height .2s;mix-blend-mode:screen"></div>
+
+<!-- ============ SECTION 0 — HEADER ============ -->
+<header data-screen-label="Header" style="position:fixed;top:0;left:0;right:0;z-index:900;animation:headerGlass 1s linear both;animation-timeline:scroll();animation-range:0px 180px">
+  <div style="max-width:1560px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;gap:32px">
+    <a href="#hero" style="display:flex;align-items:center;gap:12px">
+      <span style="width:34px;height:34px;background:linear-gradient(135deg,#F5B800,#F7D77C);display:grid;place-items:center;font-family:'Space Grotesk',sans-serif;font-weight:700;color:#070707;font-size:15px;letter-spacing:-.5px">A</span>
+      <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;letter-spacing:.14em">ADT&nbsp;INTERACTIVE</span>
+    </a>
+    <nav style="display:flex;align-items:center;gap:34px;flex-wrap:wrap;justify-content:flex-end">
+      <a href="#hero" style="font-size:13px;letter-spacing:.06em;color:#F5F5F2;padding:6px 0;border-bottom:1px solid transparent;transition:all .3s" style-hover="color:#F7D77C;border-bottom:1px solid #F5B800">Home</a>
+      <a href="#usp" style="font-size:13px;letter-spacing:.06em;color:#9C9C96;padding:6px 0;border-bottom:1px solid transparent;transition:all .3s" style-hover="color:#F7D77C;border-bottom:1px solid #F5B800">Strategic Partners</a>
+      <a href="#journey" style="font-size:13px;letter-spacing:.06em;color:#9C9C96;padding:6px 0;border-bottom:1px solid transparent;transition:all .3s" style-hover="color:#F7D77C;border-bottom:1px solid #F5B800">Product Ecosystem</a>
+      <a href="#news" style="font-size:13px;letter-spacing:.06em;color:#9C9C96;padding:6px 0;border-bottom:1px solid transparent;transition:all .3s" style-hover="color:#F7D77C;border-bottom:1px solid #F5B800">Project &amp; News</a>
+      <a href="#projects" style="font-size:13px;letter-spacing:.06em;color:#9C9C96;padding:6px 0;border-bottom:1px solid transparent;transition:all .3s" style-hover="color:#F7D77C;border-bottom:1px solid #F5B800">Sản phẩm</a>
+      <a href="#hero" style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9C9C96;border:1px solid rgba(255,255,255,0.12);padding:5px 10px;transition:all .3s" style-hover="color:#F7D77C;border:1px solid #F5B800">VI</a>
+      <a href="#contact" data-magnetic="1" style="font-size:13px;letter-spacing:.08em;color:#070707;background:linear-gradient(120deg,#F5B800,#F7D77C);padding:10px 22px;font-weight:600;transition:box-shadow .3s;display:inline-block" style-hover="box-shadow:0 0 28px rgba(245,184,0,.35)">Liên hệ</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ SECTION 1 — GIỚI THIỆU CHUNG / HERO ============ -->
+<section id="hero" data-screen-label="1 — Giới thiệu chung" style="position:relative;min-height:100vh;display:flex;align-items:center;padding:140px 48px 80px;background-image:radial-gradient(1200px 600px at 78% 40%,rgba(245,184,0,0.07),transparent 60%),linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);background-size:auto,80px 80px,80px 80px">
+  <div style="max-width:1560px;margin:0 auto;width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(430px,1fr));gap:72px;align-items:center">
+    <div>
+      <div style="display:flex;align-items:center;gap:14px;animation:fadeUp 1s cubic-bezier(.22,1,.36,1) both;animation-delay:.1s">
+        <span style="width:8px;height:8px;background:#F5B800;border-radius:50%;animation:pulseDot 2.6s ease-in-out infinite"></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.32em;color:#F7D77C">IMMERSIVEPLAY™</span>
+        <span style="height:1px;flex:0 0 64px;background:linear-gradient(90deg,#F5B800,transparent)"></span>
+      </div>
+      <h1 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(42px,4.6vw,78px);line-height:1.04;letter-spacing:-.02em;margin:28px 0 0;color:#F5F5F2;text-wrap:balance;animation:fadeUp 1s cubic-bezier(.22,1,.36,1) both;animation-delay:.22s">Phần mềm nhập vai <span style="color:transparent;background:linear-gradient(110deg,#F5B800 20%,#F7D77C 60%,#F5B800);background-clip:text;-webkit-background-clip:text">tương tác</span> với màn hình cảm ứng</h1>
+      <p style="font-size:17px;font-weight:300;line-height:1.75;color:#9C9C96;max-width:560px;margin:28px 0 0;text-wrap:pretty;animation:fadeUp 1s cubic-bezier(.22,1,.36,1) both;animation-delay:.36s">ImmersivePlay™ là công nghệ nhập vai tương tác kết hợp hệ thống màn hình điều khiển và hiển thị. Người dùng chạm tay để điều khiển không gian ảo, khám phá, làm nhiệm vụ hoặc theo dõi thông tin.</p>
+      <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:44px;animation:fadeUp 1s cubic-bezier(.22,1,.36,1) both;animation-delay:.5s">
+        <a href="#contact" data-magnetic="1" style="display:inline-flex;align-items:center;gap:12px;background:linear-gradient(120deg,#F5B800,#F7D77C);color:#070707;font-weight:600;font-size:14px;letter-spacing:.06em;padding:17px 32px;transition:box-shadow .35s" style-hover="box-shadow:0 0 40px rgba(245,184,0,.4)">Bắt đầu dự án cùng ADT<span style="font-family:'IBM Plex Mono',monospace">→</span></a>
+        <a href="#projects" data-magnetic="1" style="display:inline-flex;align-items:center;gap:12px;border:1px solid rgba(255,255,255,0.18);color:#F5F5F2;font-weight:500;font-size:14px;letter-spacing:.06em;padding:17px 32px;transition:all .35s" style-hover="border:1px solid #F5B800;color:#F7D77C">Ứng dụng thực tế<span style="font-family:'IBM Plex Mono',monospace">↓</span></a>
+      </div>
+      <div style="display:flex;gap:28px;margin-top:56px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5c5c58;letter-spacing:.18em;animation:fadeIn 1.2s both;animation-delay:.7s">
+        <span>TOUCH&nbsp;·&nbsp;DISPLAY</span><span>21.0285°N&nbsp;105.8542°E</span><span>SYS/ACTIVE</span>
+      </div>
+    </div>
+    <div data-dc-ref="heroFrame" style="position:relative;animation:fadeIn 1.4s both;animation-delay:.4s">
+      <div style="position:absolute;inset:-22px;border:1px solid rgba(255,255,255,0.1);pointer-events:none">
+        <span style="position:absolute;left:-1px;top:-1px;width:22px;height:22px;border-left:2px solid #F5B800;border-top:2px solid #F5B800"></span>
+        <span style="position:absolute;right:-1px;top:-1px;width:22px;height:22px;border-right:2px solid #F5B800;border-top:2px solid #F5B800"></span>
+        <span style="position:absolute;left:-1px;bottom:-1px;width:22px;height:22px;border-left:2px solid #F5B800;border-bottom:2px solid #F5B800"></span>
+        <span style="position:absolute;right:-1px;bottom:-1px;width:22px;height:22px;border-right:2px solid #F5B800;border-bottom:2px solid #F5B800"></span>
+        <span style="position:absolute;top:-30px;left:0;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.26em;color:#5c5c58">FIG.01 — IMMERSIVE DISPLAY</span>
+        <span style="position:absolute;bottom:-30px;right:0;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.26em;color:#5c5c58">1920 × 1080 / TOUCH INPUT</span>
+      </div>
+      <div data-dc-ref="heroInner" style="position:relative;aspect-ratio:16/10;background:#111111;overflow:hidden;will-change:transform">
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="hero-visual" shape="rect" placeholder="Thả ảnh / video ImmersivePlay™ vào đây" hint-size="100%,100%" style="position:absolute;inset:0"></x-import>
+        <canvas data-dc-ref="heroCanvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 2 — USP ============ -->
+<section id="usp" data-screen-label="2 — USP" style="position:relative;padding:140px 48px;background:#0a0a0a;border-top:1px solid rgba(255,255,255,0.06)">
+  <div style="max-width:1560px;margin:0 auto">
+    <div style="display:flex;align-items:baseline;gap:24px;animation:fadeUp .9s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 0% cover 22%">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.3em;color:#F5B800">02</span>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(34px,3.4vw,58px);letter-spacing:-.015em;margin:0;color:#F5F5F2">WHY IMMERSIVEPLAY™?</h2>
+    </div>
+    <div style="height:1px;background:linear-gradient(90deg,#F5B800,rgba(255,255,255,0.08) 40%,rgba(255,255,255,0.08));margin:44px 0 0;transform-origin:left;animation:lineGrow 1s ease both;animation-timeline:view();animation-range:entry 0% cover 25%"></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:0">
+      <div style="padding:56px 36px 64px;border-right:1px solid rgba(255,255,255,0.07);position:relative;transition:background .4s;animation:fadeUp .9s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 0% cover 28%" style-hover="background:rgba(245,184,0,0.045)">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.28em;color:#5c5c58">USP/01</span>
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(72px,6.5vw,116px);line-height:1;margin:22px 0 0;color:transparent;background:linear-gradient(160deg,#F7D77C,#F5B800);background-clip:text;-webkit-background-clip:text">×3</div>
+        <p style="font-size:16px;line-height:1.65;color:#F5F5F2;margin:20px 0 0;font-weight:400;text-wrap:pretty">lần tỷ lệ thu hút &amp; thời gian giữ chân khách hàng</p>
+      </div>
+      <div style="padding:56px 36px 64px;border-right:1px solid rgba(255,255,255,0.07);position:relative;transition:background .4s;animation:fadeUp .9s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 5% cover 32%" style-hover="background:rgba(245,184,0,0.045)">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.28em;color:#5c5c58">USP/02</span>
+        <div style="height:clamp(72px,6.5vw,116px);margin:22px 0 0;display:flex;align-items:center"><span style="width:64px;height:64px;border:1px solid #F5B800;border-radius:50%;display:grid;place-items:center;color:#F7D77C;font-family:'IBM Plex Mono',monospace;font-size:20px">◉</span></div>
+        <p style="font-size:16px;line-height:1.65;color:#F5F5F2;margin:20px 0 0;font-weight:400;text-wrap:pretty">Cho phép nhập vai sâu, chủ động tìm hiểu thông tin</p>
+      </div>
+      <div style="padding:56px 36px 64px;border-right:1px solid rgba(255,255,255,0.07);position:relative;transition:background .4s;animation:fadeUp .9s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 10% cover 36%" style-hover="background:rgba(245,184,0,0.045)">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.28em;color:#5c5c58">USP/03</span>
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(72px,6.5vw,116px);line-height:1;margin:22px 0 0;color:transparent;background:linear-gradient(160deg,#F7D77C,#F5B800);background-clip:text;-webkit-background-clip:text">×5</div>
+        <p style="font-size:16px;line-height:1.65;color:#F5F5F2;margin:20px 0 0;font-weight:400;text-wrap:pretty">lần khả năng ghi nhớ thương hiệu</p>
+      </div>
+      <div style="padding:56px 36px 64px;position:relative;transition:background .4s;animation:fadeUp .9s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 15% cover 40%" style-hover="background:rgba(245,184,0,0.045)">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.28em;color:#5c5c58">USP/04</span>
+        <div style="height:clamp(72px,6.5vw,116px);margin:22px 0 0;display:flex;align-items:center"><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:44px;color:#F7D77C;letter-spacing:-.02em">№1</span></div>
+        <p style="font-size:16px;line-height:1.65;color:#F5F5F2;margin:20px 0 0;font-weight:400;text-wrap:pretty">Định vị vị thế tiên phong</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 3 — TRIỂN KHAI TOÀN TRÌNH ============ -->
+<section id="journey" data-screen-label="3 — Triển khai toàn trình" style="position:relative;height:340vh;view-timeline:--journey block;background:#070707">
+  <div style="position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;padding:110px 48px 60px;overflow:hidden;background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);background-size:80px 80px">
+    <div style="max-width:1560px;margin:0 auto;width:100%">
+      <div style="display:flex;align-items:baseline;gap:24px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.3em;color:#F5B800">03</span>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(28px,2.8vw,48px);letter-spacing:-.015em;margin:0;color:#F5F5F2;text-wrap:balance">ADT ĐỒNG HÀNH TRIỂN KHAI TOÀN TRÌNH TRẢI NGHIỆM</h2>
+      </div>
+      <div style="position:relative;margin-top:72px;height:1px;background:rgba(255,255,255,0.1)">
+        <div style="position:absolute;inset:0;background:linear-gradient(90deg,#F5B800,#F7D77C);transform-origin:left;animation:growX 1s linear both;animation-timeline:--journey;animation-range:contain 0% contain 100%"></div>
+        <div style="position:absolute;top:-7px;width:15px;height:15px;margin-left:-7px;border-radius:50%;background:#F7D77C;box-shadow:0 0 22px rgba(245,184,0,.8);animation:signalMove 1s linear both;animation-timeline:--journey;animation-range:contain 0% contain 100%">
+          <span style="position:absolute;inset:0;border:1px solid #F5B800;border-radius:50%;animation:ringPulse 1.6s ease-out infinite"></span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:18px;margin-top:26px">
+        <div style="animation:stageOn 1s linear both;animation-timeline:--journey;animation-range:contain 0% contain 21%">
+          <span style="display:block;width:9px;height:9px;border-radius:50%;background:#3a3a36;margin:-35px 0 26px 0;animation:stageDotOn 1s linear both;animation-timeline:--journey;animation-range:contain 0% contain 21%"></span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.24em;color:inherit">01</span>
+          <p style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(14px,1.1vw,19px);line-height:1.35;margin:10px 0 0;color:inherit;text-wrap:balance">Tư vấn chiến lược</p>
+        </div>
+        <div style="animation:stageOn 1s linear both;animation-timeline:--journey;animation-range:contain 16% contain 37%">
+          <span style="display:block;width:9px;height:9px;border-radius:50%;background:#3a3a36;margin:-35px 0 26px 0;animation:stageDotOn 1s linear both;animation-timeline:--journey;animation-range:contain 16% contain 37%"></span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.24em;color:inherit">02</span>
+          <p style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(14px,1.1vw,19px);line-height:1.35;margin:10px 0 0;color:inherit;text-wrap:balance">Xây dựng giải pháp công nghệ</p>
+        </div>
+        <div style="animation:stageOn 1s linear both;animation-timeline:--journey;animation-range:contain 33% contain 54%">
+          <span style="display:block;width:9px;height:9px;border-radius:50%;background:#3a3a36;margin:-35px 0 26px 0;animation:stageDotOn 1s linear both;animation-timeline:--journey;animation-range:contain 33% contain 54%"></span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.24em;color:inherit">03</span>
+          <p style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(14px,1.1vw,19px);line-height:1.35;margin:10px 0 0;color:inherit;text-wrap:balance">Triển khai công nghệ trải nghiệm &amp; tương tác</p>
+        </div>
+        <div style="animation:stageOn 1s linear both;animation-timeline:--journey;animation-range:contain 50% contain 71%">
+          <span style="display:block;width:9px;height:9px;border-radius:50%;background:#3a3a36;margin:-35px 0 26px 0;animation:stageDotOn 1s linear both;animation-timeline:--journey;animation-range:contain 50% contain 71%"></span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.24em;color:inherit">04</span>
+          <p style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(14px,1.1vw,19px);line-height:1.35;margin:10px 0 0;color:inherit;text-wrap:balance">Thiết kế &amp; Thi công không gian</p>
+        </div>
+        <div style="animation:stageOn 1s linear both;animation-timeline:--journey;animation-range:contain 66% contain 87%">
+          <span style="display:block;width:9px;height:9px;border-radius:50%;background:#3a3a36;margin:-35px 0 26px 0;animation:stageDotOn 1s linear both;animation-timeline:--journey;animation-range:contain 66% contain 87%"></span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.24em;color:inherit">05</span>
+          <p style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(14px,1.1vw,19px);line-height:1.35;margin:10px 0 0;color:inherit;text-wrap:balance">Vận hành trải nghiệm</p>
+        </div>
+        <div style="animation:stageOn 1s linear both;animation-timeline:--journey;animation-range:contain 82% contain 100%">
+          <span style="display:block;width:9px;height:9px;border-radius:50%;background:#3a3a36;margin:-35px 0 26px 0;animation:stageDotOn 1s linear both;animation-timeline:--journey;animation-range:contain 82% contain 100%"></span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.24em;color:inherit">06</span>
+          <p style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(14px,1.1vw,19px);line-height:1.35;margin:10px 0 0;color:inherit;text-wrap:balance">Truyền thông &amp; Lan tỏa</p>
+        </div>
+      </div>
+      <div style="position:relative;margin-top:64px;height:min(34vh,300px);border:1px solid rgba(255,255,255,0.08);background:rgba(17,17,17,.6)">
+        <span style="position:absolute;top:14px;left:18px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.26em;color:#5c5c58;z-index:2">SUPPORTING VISUAL — ILLUSTRATIVE</span>
+        <div style="position:absolute;inset:0;display:grid;place-items:center;animation:stageVis 1s linear both;animation-timeline:--journey;animation-range:contain 0% contain 21%">
+          <div style="text-align:center"><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(48px,5vw,84px);color:rgba(247,215,124,.18)">01</span><p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.3em;color:#F7D77C;margin:8px 0 0">STRATEGIC&nbsp;IDEA</p><p style="font-size:13px;color:#9C9C96;margin:8px 0 0">Định hình mục tiêu &amp; ý tưởng trải nghiệm</p></div>
+        </div>
+        <div style="position:absolute;inset:0;display:grid;place-items:center;animation:stageVis 1s linear both;animation-timeline:--journey;animation-range:contain 16% contain 37%">
+          <div style="text-align:center"><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(48px,5vw,84px);color:rgba(247,215,124,.18)">02</span><p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.3em;color:#F7D77C;margin:8px 0 0">SOLUTION&nbsp;DIAGRAM</p><p style="font-size:13px;color:#9C9C96;margin:8px 0 0">Kiến trúc giải pháp công nghệ tổng thể</p></div>
+        </div>
+        <div style="position:absolute;inset:0;display:grid;place-items:center;animation:stageVis 1s linear both;animation-timeline:--journey;animation-range:contain 33% contain 54%">
+          <div style="text-align:center"><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(48px,5vw,84px);color:rgba(247,215,124,.18)">03</span><p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.3em;color:#F7D77C;margin:8px 0 0">INTERACTIVE&nbsp;TECHNOLOGY</p><p style="font-size:13px;color:#9C9C96;margin:8px 0 0">Màn hình cảm ứng, cảm biến &amp; nội dung tương tác</p></div>
+        </div>
+        <div style="position:absolute;inset:0;display:grid;place-items:center;animation:stageVis 1s linear both;animation-timeline:--journey;animation-range:contain 50% contain 71%">
+          <div style="text-align:center"><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(48px,5vw,84px);color:rgba(247,215,124,.18)">04</span><p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.3em;color:#F7D77C;margin:8px 0 0">SPATIAL&nbsp;DESIGN</p><p style="font-size:13px;color:#9C9C96;margin:8px 0 0">Thiết kế &amp; thi công không gian trải nghiệm</p></div>
+        </div>
+        <div style="position:absolute;inset:0;display:grid;place-items:center;animation:stageVis 1s linear both;animation-timeline:--journey;animation-range:contain 66% contain 87%">
+          <div style="text-align:center"><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(48px,5vw,84px);color:rgba(247,215,124,.18)">05</span><p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.3em;color:#F7D77C;margin:8px 0 0">OPERATION</p><p style="font-size:13px;color:#9C9C96;margin:8px 0 0">Vận hành, giám sát &amp; tối ưu trải nghiệm</p></div>
+        </div>
+        <div style="position:absolute;inset:0;display:grid;place-items:center;animation:stageVisLast 1s linear both;animation-timeline:--journey;animation-range:contain 82% contain 100%">
+          <div style="text-align:center"><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(48px,5vw,84px);color:rgba(247,215,124,.18)">06</span><p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.3em;color:#F7D77C;margin:8px 0 0">COMMUNICATION</p><p style="font-size:13px;color:#9C9C96;margin:8px 0 0">Truyền thông &amp; lan tỏa giá trị trải nghiệm</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 4 — ỨNG DỤNG THỰC TẾ ============ -->
+<section id="projects" data-screen-label="4 — Ứng dụng thực tế" style="position:relative;padding:140px 48px 60px;background:#0a0a0a;border-top:1px solid rgba(255,255,255,0.06)">
+  <div style="max-width:1560px;margin:0 auto">
+    <div style="display:flex;align-items:baseline;gap:24px;animation:fadeUp .9s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 0% cover 18%">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.3em;color:#F5B800">04</span>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(34px,3.4vw,58px);letter-spacing:-.015em;margin:0;color:#F5F5F2">ỨNG DỤNG THỰC TẾ</h2>
+    </div>
+
+    <div style="position:relative;min-height:86vh;display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:64px;align-items:center;margin-top:90px;padding:40px 0">
+      <span style="position:absolute;top:-40px;right:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(140px,18vw,300px);line-height:1;color:rgba(255,255,255,0.035);pointer-events:none;user-select:none">01</span>
+      <div style="position:relative;aspect-ratio:16/11;overflow:hidden;border:1px solid rgba(255,255,255,0.1);animation:maskReveal 1s cubic-bezier(.65,0,.35,1) both;animation-timeline:view();animation-range:entry 5% cover 32%">
+        <div style="position:absolute;inset:0;animation:parallaxY 1s linear both;animation-timeline:view();animation-range:cover 0% cover 100%">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="project-01" shape="rect" placeholder="Ảnh / video dự án 01" hint-size="100%,100%" style="position:absolute;inset:0"></x-import>
+        </div>
+      </div>
+      <div style="animation:fadeUp 1s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 10% cover 35%">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.28em;color:#F7D77C">PROJECT / 01</span>
+        <div style="margin-top:26px;display:grid;gap:22px">
+          <div><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.26em;color:#5c5c58;display:block">DỰ ÁN</span><p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(24px,2vw,34px);margin:8px 0 0;color:#F5F5F2">[Tên dự án — CMS]</p></div>
+          <div><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.26em;color:#5c5c58;display:block">KHÁCH HÀNG</span><p style="font-size:16px;margin:8px 0 0;color:#F5F5F2">[Tên khách hàng — CMS]</p></div>
+          <div><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.26em;color:#5c5c58;display:block">MÔ TẢ ỨNG DỤNG CÔNG NGHỆ</span><p style="font-size:15px;font-weight:300;line-height:1.75;margin:8px 0 0;color:#9C9C96;text-wrap:pretty">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="position:relative;min-height:86vh;display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:64px;align-items:center;padding:40px 0;border-top:1px solid rgba(255,255,255,0.06)">
+      <span style="position:absolute;top:-30px;left:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(140px,18vw,300px);line-height:1;color:rgba(255,255,255,0.035);pointer-events:none;user-select:none">02</span>
+      <div style="order:1;animation:fadeUp 1s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 10% cover 35%">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.28em;color:#F7D77C">PROJECT / 02</span>
+        <div style="margin-top:26px;display:grid;gap:22px">
+          <div><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.26em;color:#5c5c58;display:block">DỰ ÁN</span><p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(24px,2vw,34px);margin:8px 0 0;color:#F5F5F2">[Tên dự án — CMS]</p></div>
+          <div><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.26em;color:#5c5c58;display:block">KHÁCH HÀNG</span><p style="font-size:16px;margin:8px 0 0;color:#F5F5F2">[Tên khách hàng — CMS]</p></div>
+          <div><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.26em;color:#5c5c58;display:block">MÔ TẢ ỨNG DỤNG CÔNG NGHỆ</span><p style="font-size:15px;font-weight:300;line-height:1.75;margin:8px 0 0;color:#9C9C96;text-wrap:pretty">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
+        </div>
+      </div>
+      <div style="order:2;position:relative;aspect-ratio:16/11;overflow:hidden;border:1px solid rgba(255,255,255,0.1);animation:maskReveal 1s cubic-bezier(.65,0,.35,1) both;animation-timeline:view();animation-range:entry 5% cover 32%">
+        <div style="position:absolute;inset:0;animation:parallaxY 1s linear both;animation-timeline:view();animation-range:cover 0% cover 100%">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="project-02" shape="rect" placeholder="Ảnh / video dự án 02" hint-size="100%,100%" style="position:absolute;inset:0"></x-import>
+        </div>
+      </div>
+    </div>
+
+    <div style="position:relative;min-height:86vh;display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:64px;align-items:center;padding:40px 0 80px;border-top:1px solid rgba(255,255,255,0.06)">
+      <span style="position:absolute;top:-30px;right:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(140px,18vw,300px);line-height:1;color:rgba(255,255,255,0.035);pointer-events:none;user-select:none">03</span>
+      <div style="position:relative;aspect-ratio:16/11;overflow:hidden;border:1px solid rgba(255,255,255,0.1);animation:maskReveal 1s cubic-bezier(.65,0,.35,1) both;animation-timeline:view();animation-range:entry 5% cover 32%">
+        <div style="position:absolute;inset:0;animation:parallaxY 1s linear both;animation-timeline:view();animation-range:cover 0% cover 100%">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="project-03" shape="rect" placeholder="Ảnh / video dự án 03" hint-size="100%,100%" style="position:absolute;inset:0"></x-import>
+        </div>
+      </div>
+      <div style="animation:fadeUp 1s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 10% cover 35%">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.28em;color:#F7D77C">PROJECT / 03</span>
+        <div style="margin-top:26px;display:grid;gap:22px">
+          <div><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.26em;color:#5c5c58;display:block">DỰ ÁN</span><p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(24px,2vw,34px);margin:8px 0 0;color:#F5F5F2">[Tên dự án — CMS]</p></div>
+          <div><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.26em;color:#5c5c58;display:block">KHÁCH HÀNG</span><p style="font-size:16px;margin:8px 0 0;color:#F5F5F2">[Tên khách hàng — CMS]</p></div>
+          <div><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.26em;color:#5c5c58;display:block">MÔ TẢ ỨNG DỤNG CÔNG NGHỆ</span><p style="font-size:15px;font-weight:300;line-height:1.75;margin:8px 0 0;color:#9C9C96;text-wrap:pretty">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 5 — TIN TỨC LIÊN QUAN ============ -->
+<section id="news" data-screen-label="5 — Tin tức liên quan" style="position:relative;padding:140px 48px;background:#070707;border-top:1px solid rgba(255,255,255,0.06)">
+  <div style="max-width:1560px;margin:0 auto">
+    <div style="display:flex;align-items:baseline;gap:24px;animation:fadeUp .9s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 0% cover 15%">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.3em;color:#F5B800">05</span>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(34px,3.4vw,58px);letter-spacing:-.015em;margin:0;color:#F5F5F2">TIN TỨC LIÊN QUAN</h2>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:40px;margin-top:64px">
+      <a href="#news" style="flex:1 1 520px;min-width:min(520px,100%);display:block;group:featured;animation:fadeUp 1s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 0% cover 25%">
+        <div style="position:relative;aspect-ratio:16/9;overflow:hidden;border:1px solid rgba(255,255,255,0.1)">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="article-01" shape="rect" placeholder="Ảnh bài viết 01" hint-size="100%,100%" style="position:absolute;inset:0"></x-import>
+        </div>
+        <span style="display:inline-block;margin-top:26px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.28em;color:#F7D77C">FEATURED / 01</span>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(24px,2.2vw,36px);line-height:1.25;margin:14px 0 0;color:#F5F5F2;text-wrap:balance;transition:color .3s">Nhập vai – Tương tác giúp ghi nhớ thương hiệu lâu gấp 3–5 lần</h3>
+        <p style="font-size:15px;font-weight:300;line-height:1.75;color:#9C9C96;margin:16px 0 0;max-width:640px;text-wrap:pretty">Trong bối cảnh thông tin bùng nổ, thách thức của truyền thông không còn là truyền tải bao nhiêu nội dung, mà là người xem ghi nhớ được bao nhiêu. Trải nghiệm nhập vai đang trở thành lời giải mới cho bài toán này.</p>
+        <span style="display:inline-flex;align-items:center;gap:10px;margin-top:22px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.2em;color:#F5B800;border-bottom:1px solid transparent;transition:all .3s" style-hover="border-bottom:1px solid #F5B800;gap:18px">ĐỌC BÀI VIẾT <span>→</span></span>
+      </a>
+      <div style="flex:1 1 380px;min-width:min(380px,100%);display:flex;flex-direction:column;gap:40px">
+        <a href="#news" style="display:grid;grid-template-columns:160px 1fr;gap:22px;align-items:start;padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,0.08);animation:fadeUp 1s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 5% cover 28%">
+          <div style="position:relative;aspect-ratio:4/3;overflow:hidden;border:1px solid rgba(255,255,255,0.1)">
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="article-02" shape="rect" placeholder="Ảnh bài 02" hint-size="100%,100%" style="position:absolute;inset:0"></x-import>
+          </div>
+          <div>
+            <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:18px;line-height:1.35;margin:0;color:#F5F5F2;transition:color .3s" style-hover="color:#F7D77C">Trải nghiệm cá nhân hóa – Xu hướng triển lãm sự kiện tương tác</h3>
+            <p style="font-size:13px;font-weight:300;line-height:1.7;color:#9C9C96;margin:10px 0 0;text-wrap:pretty">Các thương hiệu đang dịch chuyển từ bán sản phẩm sang bán trải nghiệm, không ngừng tung ra những "chiêu trò" trong cuộc chạy đua trải nghiệm cá nhân hóa với mong muốn tăng thị phần người dùng.</p>
+            <span style="display:inline-block;margin-top:12px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:#F5B800;transition:letter-spacing .3s" style-hover="letter-spacing:.32em">→</span>
+          </div>
+        </a>
+        <a href="#news" style="display:grid;grid-template-columns:160px 1fr;gap:22px;align-items:start;padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,0.08);animation:fadeUp 1s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 10% cover 32%">
+          <div style="position:relative;aspect-ratio:4/3;overflow:hidden;border:1px solid rgba(255,255,255,0.1)">
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="article-03" shape="rect" placeholder="Ảnh bài 03" hint-size="100%,100%" style="position:absolute;inset:0"></x-import>
+          </div>
+          <div>
+            <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:18px;line-height:1.35;margin:0;color:#F5F5F2;transition:color .3s" style-hover="color:#F7D77C">Sảnh tiếp đón thông minh – Bước ngoặt trong quá trình chuyển đổi số của các doanh nghiệp</h3>
+            <p style="font-size:13px;font-weight:300;line-height:1.7;color:#9C9C96;margin:10px 0 0;text-wrap:pretty">Hệ thống sảnh tiếp đón thông minh đang trở thành một bước tiến vượt bậc trong việc cá nhân hóa trải nghiệm khách hàng và tạo dựng lòng tin ngay từ cái nhìn đầu tiên.</p>
+            <span style="display:inline-block;margin-top:12px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:#F5B800;transition:letter-spacing .3s" style-hover="letter-spacing:.32em">→</span>
+          </div>
+        </a>
+        <a href="#news" style="position:relative;display:grid;grid-template-columns:160px 1fr;gap:22px;align-items:start;animation:fadeUp 1s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 15% cover 36%">
+          <span style="position:absolute;top:-14px;right:0;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.22em;color:#070707;background:#F5B800;padding:3px 8px">CMS — CHỜ THAY NỘI DUNG</span>
+          <div style="position:relative;aspect-ratio:4/3;overflow:hidden;border:1px solid rgba(255,255,255,0.1)">
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="article-04" shape="rect" placeholder="Ảnh bài 04" hint-size="100%,100%" style="position:absolute;inset:0"></x-import>
+          </div>
+          <div>
+            <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:18px;line-height:1.35;margin:0;color:#F5F5F2;transition:color .3s" style-hover="color:#F7D77C">Sảnh tiếp đón thông minh – Bước ngoặt trong quá trình chuyển đổi số của các doanh nghiệp</h3>
+            <p style="font-size:13px;font-weight:300;line-height:1.7;color:#9C9C96;margin:10px 0 0;text-wrap:pretty">Hệ thống sảnh tiếp đón thông minh đang trở thành một bước tiến vượt bậc trong việc cá nhân hóa trải nghiệm khách hàng và tạo dựng lòng tin ngay từ cái nhìn đầu tiên.</p>
+            <span style="display:inline-block;margin-top:12px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:#F5B800;transition:letter-spacing .3s" style-hover="letter-spacing:.32em">→</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 6 — CONTACT & FOOTER ============ -->
+<section id="contact" data-screen-label="6 — Contact &amp; Footer" style="position:relative;padding:140px 48px 0;background:#0a0a0a;border-top:1px solid rgba(255,255,255,0.06)">
+  <div style="max-width:1560px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));gap:80px;padding-bottom:120px">
+    <div style="animation:fadeUp 1s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 0% cover 25%">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.3em;color:#F5B800">06 — CONTACT</span>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(38px,3.8vw,64px);letter-spacing:-.015em;line-height:1.08;margin:24px 0 0;color:#F5F5F2;text-wrap:balance">LIÊN HỆ VỚI<br>CHÚNG TÔI</h2>
+      <p style="font-size:15px;font-weight:300;line-height:1.75;color:#9C9C96;margin:28px 0 0;max-width:460px;text-wrap:pretty">Chia sẻ nhu cầu của bạn — đội ngũ ADT Interactive sẽ phản hồi trong thời gian sớm nhất.</p>
+      <a href="#contact" data-magnetic="1" style="display:inline-flex;align-items:center;gap:12px;margin-top:44px;border:1px solid #F5B800;color:#F7D77C;font-weight:500;font-size:14px;letter-spacing:.08em;padding:16px 30px;transition:all .35s" style-hover="background:rgba(245,184,0,.1);box-shadow:0 0 30px rgba(245,184,0,.2)">Tải hồ sơ năng lực ADT<span style="font-family:'IBM Plex Mono',monospace">↓</span></a>
+    </div>
+    <form data-dc-ref="form" onSubmit="{{ onSubmit }}" style="display:grid;gap:34px;align-content:start;animation:fadeUp 1s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 5% cover 30%">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:34px">
+        <label style="display:grid;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.24em;color:#9C9C96">HỌ &amp; TÊN</span><input type="text" name="name" required="required" placeholder="Nguyễn Văn A" style="background:rgba(255,255,255,0.03);border:none;border-bottom:1px solid rgba(255,255,255,0.16);color:#F5F5F2;font-size:15px;padding:13px 14px;outline:none;transition:border-color .3s,background .3s" style-focus="border-bottom:1px solid #F5B800;background:rgba(245,184,0,0.05)"></label>
+        <label style="display:grid;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.24em;color:#9C9C96">TÊN CÔNG TY</span><input type="text" name="company" placeholder="Công ty của bạn" style="background:rgba(255,255,255,0.03);border:none;border-bottom:1px solid rgba(255,255,255,0.16);color:#F5F5F2;font-size:15px;padding:13px 14px;outline:none;transition:border-color .3s,background .3s" style-focus="border-bottom:1px solid #F5B800;background:rgba(245,184,0,0.05)"></label>
+        <label style="display:grid;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.24em;color:#9C9C96">CHỨC DANH</span><input type="text" name="title" placeholder="Vị trí công tác" style="background:rgba(255,255,255,0.03);border:none;border-bottom:1px solid rgba(255,255,255,0.16);color:#F5F5F2;font-size:15px;padding:13px 14px;outline:none;transition:border-color .3s,background .3s" style-focus="border-bottom:1px solid #F5B800;background:rgba(245,184,0,0.05)"></label>
+        <label style="display:grid;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.24em;color:#9C9C96">EMAIL</span><input type="email" name="email" required="required" placeholder="ban@congty.vn" style="background:rgba(255,255,255,0.03);border:none;border-bottom:1px solid rgba(255,255,255,0.16);color:#F5F5F2;font-size:15px;padding:13px 14px;outline:none;transition:border-color .3s,background .3s" style-focus="border-bottom:1px solid #F5B800;background:rgba(245,184,0,0.05)"></label>
+      </div>
+      <label style="display:grid;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.24em;color:#9C9C96">CHÚNG TÔI CÓ THỂ GIÚP GÌ CHO BẠN?</span><textarea name="message" rows="4" placeholder="Mô tả ngắn về nhu cầu của bạn..." style="background:rgba(255,255,255,0.03);border:none;border-bottom:1px solid rgba(255,255,255,0.16);color:#F5F5F2;font-size:15px;padding:13px 14px;outline:none;resize:vertical;transition:border-color .3s,background .3s" style-focus="border-bottom:1px solid #F5B800;background:rgba(245,184,0,0.05)"></textarea></label>
+      <button type="submit" data-magnetic="1" style="justify-self:start;display:inline-flex;align-items:center;gap:12px;background:linear-gradient(120deg,#F5B800,#F7D77C);color:#070707;border:none;cursor:none;font-family:'Be Vietnam Pro',sans-serif;font-weight:600;font-size:14px;letter-spacing:.08em;padding:17px 36px;transition:box-shadow .35s" style-hover="box-shadow:0 0 40px rgba(245,184,0,.4)">Gửi thông tin<span style="font-family:'IBM Plex Mono',monospace">→</span></button>
+    </form>
+  </div>
+
+  <footer style="border-top:1px solid rgba(255,255,255,0.08);background:#070707;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:80px 80px;animation:slowPan 30s linear infinite">
+    <div style="max-width:1560px;margin:0 auto;padding:72px 48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:48px;align-items:start">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px">
+          <span style="width:38px;height:38px;background:linear-gradient(135deg,#F5B800,#F7D77C);display:grid;place-items:center;font-family:'Space Grotesk',sans-serif;font-weight:700;color:#070707;font-size:16px">A</span>
+          <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;letter-spacing:.12em">ADT&nbsp;GLOBAL</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;margin-top:26px">
+          <span style="width:6px;height:6px;border-radius:50%;background:#F5B800;animation:pulseDot 2.4s ease-in-out infinite"></span>
+          <span style="width:6px;height:6px;border-radius:50%;background:#F5B800;animation:pulseDot 2.4s ease-in-out infinite;animation-delay:.5s"></span>
+          <span style="width:6px;height:6px;border-radius:50%;background:#F5B800;animation:pulseDot 2.4s ease-in-out infinite;animation-delay:1s"></span>
+          <span style="height:1px;flex:0 0 90px;background:linear-gradient(90deg,#F5B800,transparent)"></span>
+        </div>
+      </div>
+      <div><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.26em;color:#5c5c58;display:block">ĐỊA CHỈ</span><p style="font-size:14px;font-weight:300;line-height:1.7;color:#9C9C96;margin:12px 0 0">Tòa nhà NIC, Ngõ 7 Tôn Thất Thuyết,<br>Cầu Giấy, Hà Nội</p></div>
+      <div><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.26em;color:#5c5c58;display:block">ĐIỆN THOẠI</span><p style="font-size:14px;margin:12px 0 0"><a href="tel:+84969304486" style="color:#9C9C96;transition:color .3s" style-hover="color:#F7D77C">+84 96 930 4486</a></p></div>
+      <div><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.26em;color:#5c5c58;display:block">EMAIL</span><p style="font-size:14px;margin:12px 0 0"><a href="mailto:marketing@adtglobal.vn" style="color:#9C9C96;transition:color .3s" style-hover="color:#F7D77C">marketing@adtglobal.vn</a></p></div>
+    </div>
+  </footer>
+</section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;customCursor&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Tương tác&quot;},&quot;particleDensity&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:60,&quot;min&quot;:0,&quot;max&quot;:100,&quot;step&quot;:10,&quot;unit&quot;:&quot;%&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Tương tác&quot;},&quot;goldTone&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#F5B800&quot;,&quot;options&quot;:[&quot;#F5B800&quot;,&quot;#F7D77C&quot;,&quot;#D9A441&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Màu sắc&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    this.cleanup = [];
+    if (this.props.customCursor ?? true) this.initCursor();
+    this.initMagnetic();
+    this.initHeroCanvas();
+  }
+  componentWillUnmount() { (this.cleanup || []).forEach(fn => fn()); }
+
+  initCursor() {
+    const el = this.refs.cursor; if (!el) return;
+    let tx = -100, ty = -100, x = -100, y = -100, raf;
+    const move = e => { tx = e.clientX; ty = e.clientY; };
+    const loop = () => {
+      x += (tx - x) * 0.22; y += (ty - y) * 0.22;
+      el.style.transform = `translate(${x - 7}px,${y - 7}px)`;
+      raf = requestAnimationFrame(loop);
+    };
+    window.addEventListener('mousemove', move); loop();
+    const over = e => {
+      const on = e.target.closest && e.target.closest('a,button,input,textarea,label');
+      el.style.width = on ? '34px' : '14px'; el.style.height = on ? '34px' : '14px';
+      el.style.background = on ? 'rgba(245,184,0,.12)' : 'transparent';
+    };
+    window.addEventListener('mouseover', over);
+    this.cleanup.push(() => { window.removeEventListener('mousemove', move); window.removeEventListener('mouseover', over); cancelAnimationFrame(raf); });
+  }
+
+  initMagnetic() {
+    const root = document;
+    const els = Array.from(root.querySelectorAll('[data-magnetic]'));
+    const handlers = els.map(el => {
+      const mm = e => {
+        const r = el.getBoundingClientRect();
+        const dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
+        el.style.transform = `translate(${dx * 0.12}px,${dy * 0.18}px)`;
+      };
+      const ml = () => { el.style.transform = ''; };
+      el.addEventListener('mousemove', mm); el.addEventListener('mouseleave', ml);
+      return () => { el.removeEventListener('mousemove', mm); el.removeEventListener('mouseleave', ml); };
+    });
+    this.cleanup.push(() => handlers.forEach(h => h()));
+  }
+
+  initHeroCanvas() {
+    const canvas = this.refs.heroCanvas, frame = this.refs.heroFrame, inner = this.refs.heroInner;
+    if (!canvas || !frame) return;
+    const ctx = canvas.getContext('2d');
+    const gold = this.props.goldTone ?? '#F5B800';
+    const density = (this.props.particleDensity ?? 60) / 100;
+    let W, H, raf, ripples = [], trail = [], mouse = null;
+    const resize = () => { const r = canvas.getBoundingClientRect(); W = canvas.width = r.width * devicePixelRatio; H = canvas.height = r.height * devicePixelRatio; ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0); };
+    resize();
+    const ro = new ResizeObserver(resize); ro.observe(canvas);
+    const N = Math.round(46 * density);
+    const parts = Array.from({ length: N }, () => ({ x: Math.random(), y: Math.random(), vx: (Math.random() - .5) * .0006, vy: (Math.random() - .5) * .0006, r: .6 + Math.random() * 1.6 }));
+    const onMove = e => {
+      const r = inner.getBoundingClientRect();
+      const x = e.clientX - r.left, y = e.clientY - r.top;
+      mouse = { x, y };
+      trail.push({ x, y, life: 1 });
+      if (trail.length > 40) trail.shift();
+      if (!this._lastRip || performance.now() - this._lastRip > 120) { ripples.push({ x, y, r: 0, life: 1 }); this._lastRip = performance.now(); }
+      // depth response
+      const fx = (x / r.width - .5), fy = (y / r.height - .5);
+      inner.style.transform = `perspective(1100px) rotateY(${fx * 4}deg) rotateX(${-fy * 4}deg) scale(1.015)`;
+    };
+    const onLeave = () => { mouse = null; inner.style.transform = ''; };
+    frame.addEventListener('pointermove', onMove);
+    frame.addEventListener('pointerleave', onLeave);
+    const cw = () => canvas.getBoundingClientRect();
+    const draw = () => {
+      const r = cw(), w = r.width, h = r.height;
+      ctx.clearRect(0, 0, w, h);
+      // particles
+      for (const p of parts) {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > 1) p.vx *= -1; if (p.y < 0 || p.y > 1) p.vy *= -1;
+        let px = p.x * w, py = p.y * h, glow = .28;
+        if (mouse) { const d = Math.hypot(px - mouse.x, py - mouse.y); if (d < 160) { glow = .28 + (1 - d / 160) * .6; px += (px - mouse.x) * .04; py += (py - mouse.y) * .04; } }
+        ctx.beginPath(); ctx.arc(px, py, p.r, 0, 7); ctx.fillStyle = `rgba(247,215,124,${glow})`; ctx.fill();
+      }
+      // gold trail
+      if (trail.length > 1) {
+        for (let i = 1; i < trail.length; i++) {
+          const a = trail[i - 1], b = trail[i]; b.life *= .965;
+          ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
+          ctx.strokeStyle = `rgba(245,184,0,${b.life * .5})`; ctx.lineWidth = 1.4; ctx.stroke();
+        }
+        trail = trail.filter(t => t.life > .04);
+      }
+      // ripples
+      for (const rp of ripples) {
+        rp.r += 1.8; rp.life *= .955;
+        ctx.beginPath(); ctx.arc(rp.x, rp.y, rp.r, 0, 7);
+        ctx.strokeStyle = gold.replace(')', '').startsWith('#') ? `rgba(245,184,0,${rp.life * .45})` : gold; ctx.lineWidth = 1; ctx.stroke();
+      }
+      ripples = ripples.filter(rp => rp.life > .05);
+      raf = requestAnimationFrame(draw);
+    };
+    draw();
+    this.cleanup.push(() => { cancelAnimationFrame(raf); ro.disconnect(); frame.removeEventListener('pointermove', onMove); frame.removeEventListener('pointerleave', onLeave); });
+  }
+
+  renderVals() {
+    return {
+      onSubmit: e => {
+        e.preventDefault();
+        const btn = e.currentTarget.querySelector('button[type=submit]');
+        if (btn) { btn.textContent = 'Đã gửi thông tin — cảm ơn bạn'; btn.style.pointerEvents = 'none'; btn.style.opacity = '.75'; }
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>
